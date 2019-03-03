@@ -4,7 +4,8 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.classroom.modal.Subject;
 
+public interface SubjectDao extends CrudRepository<Subject, String> {
 
-public interface SubjectDao  extends CrudRepository<Subject,String> {
+	// List<Student> findByStudentsBySubID(String subID);
 
 }

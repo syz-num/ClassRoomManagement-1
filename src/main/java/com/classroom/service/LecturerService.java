@@ -11,7 +11,7 @@ public class LecturerService {
 	@Autowired
 	private LecturerDao lecturerDao;
 
-	public Lecturer createLecture(Lecturer lecturer) {
+	public Lecturer createLecturer(Lecturer lecturer) {
 		return lecturerDao.save(lecturer);
 	}
 

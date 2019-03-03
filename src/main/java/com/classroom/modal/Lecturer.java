@@ -1,5 +1,7 @@
 package com.classroom.modal;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -14,6 +16,14 @@ public class Lecturer {
 	private String eMail;
 	private String mobileNo;
 	private String gender;
+	private Date DOJ;
+	private String subID;
+	public String getSubID() {
+		return subID;
+	}
+	public void setSubID(String subID) {
+		this.subID = subID;
+	}
 	public String getID() {
 		return ID;
 	}
@@ -62,6 +72,13 @@ public class Lecturer {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+	public Date getDOJ() {
+		return DOJ;
+	}
+	public void setDOJ(Date dOJ) {
+		DOJ = dOJ;
+	}
+	
 	
 
 }
