@@ -9,7 +9,7 @@ import com.classroom.modal.Student;
 @Controller
 public class StudentController {
 	
-	@GetMapping("/AddStudent")
+	@GetMapping("/ResiterStudent")
 	public ModelAndView passParametersWithModelAndView() {
 		 Student student = new Student();
 		 student.setfName("ullas");
