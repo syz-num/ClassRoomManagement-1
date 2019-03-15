@@ -2,13 +2,7 @@ package com.classroom.modal;
 
 import java.util.Set;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-
-@Entity
 public class Subject {
-	@Id
 	private String subID;
 	private String subName;
 	private String lectureID;
@@ -21,8 +15,25 @@ public class Subject {
 	private float test1Attendence;
 	private float test2Attendence;
 	private float test3Attendence;
-	@ManyToMany(mappedBy = "subjects")
+	private String courseStage;
+	private int academicYear;
 	private Set<Student> students;
+
+	public String getCourseStage() {
+		return courseStage;
+	}
+
+	public void setCourseStage(String courseStage) {
+		this.courseStage = courseStage;
+	}
+
+	public int getAcademicYear() {
+		return academicYear;
+	}
+
+	public void setAcademicYear(int academicYear) {
+		this.academicYear = academicYear;
+	}
 
 	public String getSubID() {
 		return subID;
