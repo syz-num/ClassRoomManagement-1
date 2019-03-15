@@ -15,16 +15,16 @@ public class StudentService {
 		return studentDao.save(student);
 	}
 	
-	public Student getStudentById(String USN) {
-		return studentDao.findById(USN).orElse(null);
+	/*public Student getStudentById(String USN) {
+		return studentDao.findById(USN);
 	}
 	
 	public Student updateStudent(Student student) {
-		return studentDao.save(student);
+		return studentDao.update(student);
 	}
 	
 	public void deleteStudent(String USN) {
 		studentDao.deleteById(USN);
-	}
+	}*/
 	
 }

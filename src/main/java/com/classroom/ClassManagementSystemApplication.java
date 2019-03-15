@@ -11,8 +11,8 @@ public class ClassManagementSystemApplication {
 
 	public static void main(String[] args) {
 		applicationContext = SpringApplication.run(ClassManagementSystemApplication.class, args);
-		SaveDataTest savedata = new SaveDataTest();
-		savedata.saveTestData();
+//		SaveDataTest savedata = new SaveDataTest();
+//		savedata.saveTestData();
 
 	}
 

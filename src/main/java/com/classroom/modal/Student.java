@@ -1,13 +1,12 @@
 package com.classroom.modal;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.FetchType;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-
 
 public class Student {
 

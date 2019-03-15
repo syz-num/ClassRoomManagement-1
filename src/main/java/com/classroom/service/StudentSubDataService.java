@@ -8,6 +8,7 @@ import com.classroom.modal.StudentSubData;
 
 @Service
 public class StudentSubDataService {
+	/*
 	@Autowired
 	private StudentSubDataDao studentSubDataDao;
 
@@ -26,5 +27,5 @@ public class StudentSubDataService {
 	public void deleteStudent(String USN) {
 		studentSubDataDao.deleteById(USN);
 	}
-
+*/
 }

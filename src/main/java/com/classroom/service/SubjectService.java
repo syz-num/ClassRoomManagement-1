@@ -8,7 +8,7 @@ import com.classroom.modal.Subject;
 
 @Service
 public class SubjectService {
-	@Autowired
+	/*@Autowired
 	private SubjectDao subjectDao;
 
 	public Subject createSubject(Subject subject) {
@@ -26,5 +26,5 @@ public class SubjectService {
 	public void deleteSubject(String subId) {
 		subjectDao.deleteById(subId);
 	}
-
+*/
 }

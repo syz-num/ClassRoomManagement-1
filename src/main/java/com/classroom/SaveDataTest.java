@@ -1,7 +1,7 @@
 package com.classroom;
 
+import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -13,7 +13,7 @@ import com.classroom.service.LecturerService;
 import com.classroom.service.StudentService;
 import com.classroom.service.SubjectService;
 
-public class SaveDataTest {
+public class SaveDataTest {/*
 	private LecturerService lecturerService = ClassManagementSystemApplication.applicationContext
 			.getBean("lecturerService", LecturerService.class);;
 
@@ -49,14 +49,12 @@ public class SaveDataTest {
 		L1.setmName("R");
 		L1.setlName("Murthy");
 		L1.setMobileNo("8197597443");
-		L1.setSubID("16IS45");
 		Lecturer L2 = new Lecturer();
 		L2.setID("17Is54");
 		L2.setfName("Priya");
 		L2.setmName(" ");
 		L2.setlName("D");
 		L2.setMobileNo("8195697443");
-		L2.setSubID("16IS44");
 		List<Lecturer> lecturerList = new ArrayList<Lecturer>();
 		lecturerList.add(L1);
 		lecturerList.add(L2);
@@ -101,4 +99,4 @@ public class SaveDataTest {
 
 	}
 
-}
+*/}

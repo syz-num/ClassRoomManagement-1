@@ -20,10 +20,10 @@ public class LecturerController {
 	
 	@GetMapping("/LecturerHomePage")
 	public ModelAndView lecturerHomePage() {
-		Lecturer lecturer = lecturerService.getLectureById("17Is53");
+//		Lecturer lecturer = lecturerService.getLectureById("17Is53");
 		System.out.println("Inside LecturerController.......");
 		ModelAndView modelAndView = new ModelAndView("LecturerHomePage");
-		modelAndView.addObject("lecturer", lecturer);
+//		modelAndView.addObject("lecturer", lecturer);
 		return modelAndView;
 	}
 
