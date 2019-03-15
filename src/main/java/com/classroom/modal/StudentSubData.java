@@ -1,11 +1,7 @@
 package com.classroom.modal;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
 public class StudentSubData {
-	@Id
+
 	private String USN;
 	private String subID;
 	private float quiz1Marks;
