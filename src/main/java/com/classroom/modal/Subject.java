@@ -14,14 +14,13 @@ public class Subject {
 	private String lectureID;
 	private int sem;
 	private boolean isElective;
-	private String departmentID;
 	private boolean isLab;
 	private int credit;
 	private int totalMarks;
 	private float totalAttendence;
 	private float test1Attendence;
 	private float test2Attendence;
-	private float test3aAtendence;
+	private float test3Attendence;
 	@ManyToMany(mappedBy = "subjects")
 	private Set<Student> students;
 
@@ -53,12 +52,12 @@ public class Subject {
 		this.test2Attendence = test2Attendence;
 	}
 
-	public float getTest3aAtendence() {
-		return test3aAtendence;
+	public float getTest3Attendence() {
+		return test3Attendence;
 	}
 
-	public void setTest3aAtendence(float test3aAtendence) {
-		this.test3aAtendence = test3aAtendence;
+	public void setTest3Attendence(float test3Attendence) {
+		this.test3Attendence = test3Attendence;
 	}
 
 	public void setSubID(String subID) {
@@ -91,14 +90,6 @@ public class Subject {
 
 	public boolean getIsElective() {
 		return isElective;
-	}
-
-	public void setDepartmentID(String departmentID) {
-		this.departmentID = departmentID;
-	}
-
-	public String getDepartmentID() {
-		return departmentID;
 	}
 
 	public void setIsElective(boolean isElective) {

@@ -17,7 +17,6 @@ public class Student {
 	private String fName;
 	private String mName;
 	private String lName;
-	private int departmentID;
 	private int sem;
 	private String eMail;
 	private String mobileNo;
@@ -90,14 +89,6 @@ public class Student {
 
 	public void setlName(String lName) {
 		this.lName = lName;
-	}
-
-	public int getDepartmentID() {
-		return departmentID;
-	}
-
-	public void setDepartmentID(int departmentID) {
-		this.departmentID = departmentID;
 	}
 
 	public int getSem() {
