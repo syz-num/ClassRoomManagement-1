@@ -2,12 +2,9 @@ package com.classroom.modal;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 
-@Entity
 public class Lecturer {
-	@Id
+	
 	private String ID;
 	private String fName;
 	private String mName;

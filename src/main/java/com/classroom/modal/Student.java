@@ -4,15 +4,13 @@ import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
-@Entity
+
 public class Student {
-	@Id
+
 	private String USN;
 	private String fName;
 	private String mName;
