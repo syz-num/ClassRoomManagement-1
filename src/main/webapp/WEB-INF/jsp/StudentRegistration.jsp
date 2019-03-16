@@ -29,7 +29,7 @@
 		<spring:message code="lbl.page" text="Add New student" />
 	</h2>
 	<br />
-	<form:form method="post" modelAttribute="student">
+	<form:form method="post" modelAttribute="student" action="SaveStudent">
 		<table>
 			<tr>
 				<td><spring:message code="lbl.USN" text="USN" /></td>

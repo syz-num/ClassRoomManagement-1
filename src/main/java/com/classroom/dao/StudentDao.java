@@ -25,8 +25,8 @@ public class StudentDao {
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setString(1, student.getUSN());
-			statement.setDate(2, student.getDOB());
-			statement.setDate(3, student.getDOJ());
+			statement.setDate(2, new java.sql.Date(student.getDOB().getTime()));
+			statement.setDate(3, new java.sql.Date(student.getDOJ().getTime()));
 			statement.setString(4, student.geteMail());
 			statement.setString(5, student.getfName());
 			statement.setString(6, student.getmName());

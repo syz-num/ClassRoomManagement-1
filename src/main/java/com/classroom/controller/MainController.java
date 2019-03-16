@@ -11,14 +11,7 @@ import com.classroom.modal.Subject;
 @Controller
 public class MainController {
 	
-	@GetMapping("/AddStudent")
-	public ModelAndView addStudent() {
-		 Student student = new Student();		 
-         System.out.println("Inside StudentController.......");
-         ModelAndView modelAndView = new ModelAndView("StudentRegistration");
-         modelAndView.addObject("student", student);
-         return modelAndView;
-	}
+	
 	@GetMapping("/AddLecturer")
 	public ModelAndView addLecturer() {
 		 Lecturer lecturer = new Lecturer();
