@@ -31,7 +31,7 @@
 		<spring:message code="lbl.page" text="Mark Attendance" />
 	</h2>
 	<br />
-	<form:form method="post" action="StudentOperation">
+	<form:form method="post" action="/">
 		<table border="1">
 			<thead>
 				<th>USN</th>
