@@ -2,7 +2,7 @@ package com.classroom.modal;
 
 import java.util.Date;
 
-public class Attendence {
+public class Attendance {
 	private Double id;
 	private String subID;
 	private String USN;

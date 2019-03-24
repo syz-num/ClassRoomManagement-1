@@ -17,7 +17,7 @@ import com.classroom.service.CommonService;
 import com.classroom.service.UserService;
 
 @Controller
-public class AttendenceController {
+public class AttendanceController {
 
 	@Autowired
 	private CommonService commonService;

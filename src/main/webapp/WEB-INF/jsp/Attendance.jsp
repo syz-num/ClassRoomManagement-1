@@ -9,7 +9,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Student Registartion</title>
+<title>Mark Attendance</title>
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
@@ -28,7 +28,7 @@
 
 <body>
 	<h2>
-		<spring:message code="lbl.page" text="Mark Attendence" />
+		<spring:message code="lbl.page" text="Mark Attendance" />
 	</h2>
 	<br />
 	<form:form method="post" action="StudentOperation">
