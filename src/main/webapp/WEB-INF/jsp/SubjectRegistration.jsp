@@ -2,6 +2,8 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 
 <html>
 <head>
@@ -14,7 +16,16 @@
 		<spring:message code="lbl.page" text="Add New Subject" />
 	</h2>
 	<br />
-	<form:form method="post" modelAttribute="subject">
+	<form:form method="post" modelAttribute="subject"
+		action="SubjectOperation">
+		<table>
+			<tr>
+				<td><spring:message code="lbl.USN" text="Subject ID" /></td>
+				<td><form:input path="keyID" value="${student.keyID}" /></td>
+				<td><form:input type="submit" path="operation"
+						value="Search Subject" /></td>
+			</tr>
+		</table>
 		<table>
 			<tr>
 				<td><spring:message code="lbl.subID" text="Subject ID" /></td>
@@ -33,23 +44,18 @@
 				<td><spring:message code="lbl.sem" text="Semister" /></td>
 				<td><form:input path="sem" value="${subject.sem}" /></td>
 			</tr>
-			
+
 			<tr>
 				<td>Is Elective Subject?</td>
-				<td> Yes <form:checkbox path="isElective" value="Yes" /></td>
+				<td><form:input path="isElective" value="${subject.isElective}" /></td>
 
-			</tr>
-			<tr>
-				<td><spring:message code="lbl.departmentID" text="Department ID" /></td>
-				<td><form:input path="departmentID"
-						value="${subject.departmentID}" /></td>
 			</tr>
 			<tr>
 				<td>Is Lab Subject?</td>
-				<td> Yes<form:checkbox path="isLab" value="Yes" /></td>
+				<td><form:input path="isLab" value="${subject.isLab}" /></td>
 
 			</tr>
-			
+
 
 			<tr>
 				<td><spring:message code="lbl.credit" text="credit" /></td>
@@ -78,15 +84,33 @@
 						value="${subject.test2Attendence}" /></td>
 			</tr>
 			<tr>
-				<td><spring:message code="lbl.test3aAtendence"
-						text="test3aAtendence" /></td>
-				<td><form:input path="test3aAtendence"
-						value="${subject.test3aAtendence}" /></td>
+				<td><spring:message code="lbl.test3Attendence"
+						text="test3Attendence" /></td>
+				<td><form:input path="test3Attendence"
+						value="${subject.test3Attendence}" /></td>
+			</tr>
+			<tr>
+				<td><spring:message code="lbl.deptId" text="Department Id" /></td>
+				<td><form:input path="deptId" value="${subject.deptId}" /></td>
+			</tr>
+			<tr>
+				<td><spring:message code="lbl.academicYear"
+						text="Academic Year" /></td>
+				<td><form:input path="academicYear"
+						value="${subject.academicYear}" /></td>
 			</tr>
 
 
 			<tr>
-				<td colspan="2"><input type="submit" value="Add subject" /></td>
+				<td border="0" colspan="2"><textarea readonly>${subject.message}</textarea></td>
+			</tr>
+			<tr>
+				<td><form:input type="submit" path="operation"
+						value="Add Subject" /></td>
+				<td><form:input type="submit" path="operation"
+						value="Update Subject" /></td>
+				<td><form:input type="submit" path="operation"
+						value="Delete Subject" /></td>
 			</tr>
 		</table>
 	</form:form>

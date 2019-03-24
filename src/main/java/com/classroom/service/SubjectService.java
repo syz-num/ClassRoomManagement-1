@@ -1,5 +1,7 @@
 package com.classroom.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,7 +10,7 @@ import com.classroom.modal.Subject;
 
 @Service
 public class SubjectService {
-	/*@Autowired
+	@Autowired
 	private SubjectDao subjectDao;
 
 	public Subject createSubject(Subject subject) {
@@ -16,15 +18,19 @@ public class SubjectService {
 	}
 
 	public Subject getSubjectById(String subId) {
-		return subjectDao.findById(subId).orElse(null);
+		return subjectDao.findById(subId);
+	}
+
+	public List<String> getSubjectByLecturerId(String lectureId) {
+		return subjectDao.findSubjectByLecturerId(lectureId);
 	}
 
 	public Subject updateSubject(Subject subject) {
-		return subjectDao.save(subject);
+		return subjectDao.update(subject);
 	}
 
-	public void deleteSubject(String subId) {
-		subjectDao.deleteById(subId);
+	public Subject deleteSubject(Subject subject) {
+		return subjectDao.deleteById(subject);
 	}
-*/
+
 }

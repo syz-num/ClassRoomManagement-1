@@ -15,17 +15,36 @@ public class Student {
 	private String gender;
 	private Date DOB;
 	private Date DOJ;
+	private String deptId;
 	private String message;
 	private String operation;
 	private String keyUSN;
+	private String subId;
+	private String isPresent;
 	private Set<Subject> subjects;
 
 	public Set<Subject> getSubjects() {
 		return subjects;
 	}
 
+	public String getSubId() {
+		return subId;
+	}
+
+	public void setSubId(String subId) {
+		this.subId = subId;
+	}
+
 	public void setSubjects(Set<Subject> subjects) {
 		this.subjects = subjects;
+	}
+
+	public String getIsPresent() {
+		return isPresent;
+	}
+
+	public void setIsPresent(String isPresent) {
+		this.isPresent = isPresent;
 	}
 
 	public Date getDOB() {
@@ -122,6 +141,14 @@ public class Student {
 
 	public void seteMail(String eMail) {
 		this.eMail = eMail;
+	}
+
+	public String getDeptId() {
+		return deptId;
+	}
+
+	public void setDeptId(String deptId) {
+		this.deptId = deptId;
 	}
 
 	public String getMobileNo() {

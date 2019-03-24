@@ -2,6 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <html>
 <head>
@@ -10,36 +11,23 @@
 </head>
 
 <body>
-	
-	<form:form method="post" modelAttribute="lecturer">
+	<h4>Welcome ${sessionScope.username },</h4>
+	<form method="post" action="MarkAttendance">
 		<table>
 			<tr>
-				<td><spring:message code="lbl.ID" text="ID" /></td>
-				<td><spring:message code="lbl.ID" text="${lecturer.ID}" /></td>
+				<td>Please select subject Id to mark attendence :</td>
+				<td><select id="subId" name="subId">
+						<option value="">--Select--</option>
+						<c:forEach var="subject" items="${sessionScope.subjectList}">
+							<option value="${subject}">${subject}</option>
+						</c:forEach>
+				</select></td>
 			</tr>
 			<tr>
-				<td><spring:message text="First Name" /></td>
-				<td><spring:message code="lbl.fName" text="${lecturer.fName}" /></td>
-			</tr>
-			<tr>
-				<td><spring:message code="lbl.mName" text="Middle Name" /></td>
-				<td><spring:message code="lbl.mName" text="${lecturer.mName}" /></td>
-			</tr>
-			<tr>
-				<td><spring:message code="lbl.lName" text="Last Name" /></td>
-				<td><spring:message code="lbl.lName" text="${lecturer.lName}" /></td>
-			</tr>
-			<tr>
-				<td><spring:message code="lbl.eMail" text="Email Id" /></td>
-				<td><spring:message code="lbl.eMail" text="${lecturer.eMail}" /></td>
-			</tr>
-			
-			
-			
-			<tr>
-				<td colspan="2"><input type="submit" value="Add Lecturer" /></td>
+				<td><input type="submit" value="Mark Attendance"></td>
 			</tr>
 		</table>
-	</form:form>
+
+	</form>
 </body>
 </html>

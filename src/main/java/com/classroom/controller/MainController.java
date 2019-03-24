@@ -10,12 +10,5 @@ import com.classroom.modal.Subject;
 public class MainController {
 	
 	
-	@GetMapping("/AddSubject")
-	public ModelAndView addSubject() {
-		 Subject subject  = new Subject();		 
-         System.out.println("Inside SubjectController.......");
-         ModelAndView modelAndView = new ModelAndView("SubjectRegistration");
-         modelAndView.addObject("subject", subject);
-         return modelAndView;
-	}
+	
 }

@@ -88,6 +88,10 @@
 						value="${doj}" /></td>
 			</tr>
 			<tr>
+				<td><spring:message code="lbl.deptId" text="Department Id" /></td>
+				<td><form:input path="deptId" value="${student.deptId}" /></td>
+			</tr>
+			<tr>
 				<td border="0" colspan="2"><textarea readonly>${student.message}</textarea></td>
 			</tr>
 			<tr>

@@ -7,8 +7,8 @@ public class Subject {
 	private String subName;
 	private String lectureID;
 	private int sem;
-	private boolean isElective;
-	private boolean isLab;
+	private String isElective;
+	private String isLab;
 	private int credit;
 	private int totalMarks;
 	private float totalAttendence;
@@ -17,10 +17,46 @@ public class Subject {
 	private float test3Attendence;
 	private String courseStage;
 	private int academicYear;
+	private String deptId;
 	private Set<Student> students;
+	private String message;
+	private String operation;
+	private String keyID;
 
 	public String getCourseStage() {
 		return courseStage;
+	}
+
+	public String getDeptId() {
+		return deptId;
+	}
+
+	public void setDeptId(String deptId) {
+		this.deptId = deptId;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public String getOperation() {
+		return operation;
+	}
+
+	public void setOperation(String operation) {
+		this.operation = operation;
+	}
+
+	public String getKeyID() {
+		return keyID;
+	}
+
+	public void setKeyID(String keyID) {
+		this.keyID = keyID;
 	}
 
 	public void setCourseStage(String courseStage) {
@@ -99,19 +135,19 @@ public class Subject {
 		this.sem = sem;
 	}
 
-	public boolean getIsElective() {
+	public String getIsElective() {
 		return isElective;
 	}
 
-	public void setIsElective(boolean isElective) {
+	public void setIsElective(String isElective) {
 		this.isElective = isElective;
 	}
 
-	public boolean getIsLab() {
+	public String getIsLab() {
 		return isLab;
 	}
 
-	public void setIsLab(boolean isLab) {
+	public void setIsLab(String isLab) {
 		this.isLab = isLab;
 	}
 

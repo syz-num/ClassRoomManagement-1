@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -19,7 +21,7 @@ public class StudentDao {
 
 	public Student save(Student student) {
 		Connection conn = dbUtil.getConnection();
-		String sql = "INSERT INTO CMS.student (usn, dob, doj, e_mail, f_name, m_name, l_name, gender, mobile_no, sem) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ";
+		String sql = "INSERT INTO CMS.student (usn, dob, doj, e_mail, f_name, m_name, l_name, gender, mobile_no, sem,deptid) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ";
 		int rs;
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -33,6 +35,7 @@ public class StudentDao {
 			statement.setString(8, student.getGender());
 			statement.setString(9, student.getMobileNo());
 			statement.setInt(10, student.getSem());
+			statement.setString(11, student.getDeptId());
 
 			rs = statement.executeUpdate();
 			if (rs > 0) {
@@ -47,7 +50,8 @@ public class StudentDao {
 
 	public Student findById(String USN) {
 		Connection conn = dbUtil.getConnection();
-		String sql = "SELECT usn, dob, doj, e_mail, f_name, m_name, l_name, gender, mobile_no, sem from CMS.student where USN='"+USN+"';";
+		String sql = "SELECT usn, dob, doj, e_mail, f_name, m_name, l_name, gender, mobile_no, sem, deptid from CMS.student where USN='"
+				+ USN + "';";
 		ResultSet rs;
 		Student student = new Student();
 		try {
@@ -64,6 +68,7 @@ public class StudentDao {
 				student.setGender(rs.getString(8));
 				student.setMobileNo(rs.getString(9));
 				student.setSem(rs.getInt(10));
+				student.setDeptId(rs.getString(11));
 
 			} else {
 				student.setMessage("Student Not Found.");
@@ -74,9 +79,41 @@ public class StudentDao {
 		return student;
 	}
 
+	public List<Student> findBySubectId(String subId) {
+		Connection conn = dbUtil.getConnection();
+		String sql = "SELECT S.usn, S.dob, S.doj, S.e_mail, S.f_name, S.m_name, S.l_name, S.gender, S.mobile_no, S.sem, S.deptid,SB.sub_id from CMS.student S,CMS.subject SB where S.deptid=SB.deptid and S.sem=SB.sem and SB.sub_id='"
+				+ subId + "';";
+		ResultSet rs;
+		List<Student> studentList = new ArrayList<Student>();
+		try {
+			PreparedStatement statement = conn.prepareStatement(sql);
+			rs = statement.executeQuery(sql);
+			while (rs.next()) {
+				Student student = new Student();
+				student.setUSN(rs.getString(1));
+				student.setDOB(rs.getDate(2));
+				student.setDOJ(rs.getDate(3));
+				student.seteMail(rs.getString(4));
+				student.setfName(rs.getString(5));
+				student.setmName(rs.getString(6));
+				student.setlName(rs.getString(7));
+				student.setGender(rs.getString(8));
+				student.setMobileNo(rs.getString(9));
+				student.setSem(rs.getInt(10));
+				student.setDeptId(rs.getString(11));
+				student.setSubId(rs.getString(12));
+				studentList.add(student);
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return studentList;
+	}
+
 	public Student update(Student student) {
 		Connection conn = dbUtil.getConnection();
-		String sql = "UPDATE CMS.student set dob=?, doj=?, e_mail=?, f_name=?, m_name=?, l_name=?, gender=?, mobile_no=?, sem=? where usn=?;";
+		String sql = "UPDATE CMS.student set dob=?, doj=?, e_mail=?, f_name=?, m_name=?, l_name=?, gender=?, mobile_no=?, sem=?,deptid=? where usn=?;";
 		int rs;
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -89,7 +126,8 @@ public class StudentDao {
 			statement.setString(7, student.getGender());
 			statement.setString(8, student.getMobileNo());
 			statement.setInt(9, student.getSem());
-			statement.setString(10, student.getUSN());
+			statement.setString(10, student.getDeptId());
+			statement.setString(11, student.getUSN());
 
 			rs = statement.executeUpdate();
 			if (rs > 0) {
