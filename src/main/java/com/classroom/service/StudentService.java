@@ -14,17 +14,17 @@ public class StudentService {
 	public Student createStudent(Student student) {
 		return studentDao.save(student);
 	}
-	
-	/*public Student getStudentById(String USN) {
-		return studentDao.findById(USN);
-	}
-	
+
 	public Student updateStudent(Student student) {
 		return studentDao.update(student);
 	}
-	
-	public void deleteStudent(String USN) {
-		studentDao.deleteById(USN);
-	}*/
-	
+
+	public Student getStudentById(String USN) {
+		return studentDao.findById(USN);
+	}
+
+	public Student deleteStudent(Student student) {
+		return studentDao.deleteById(student);
+	}
+
 }

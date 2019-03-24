@@ -13,6 +13,9 @@ public class Lecturer {
 	private String mobileNo;
 	private String gender;
 	private Date DOJ;
+	private String message;
+	private String operation;
+	private String keyID;
 
 	public String getID() {
 		return ID;
@@ -20,6 +23,30 @@ public class Lecturer {
 
 	public void setID(String iD) {
 		ID = iD;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public String getOperation() {
+		return operation;
+	}
+
+	public void setOperation(String operation) {
+		this.operation = operation;
+	}
+
+	public String getKeyID() {
+		return keyID;
+	}
+
+	public void setKeyID(String keyID) {
+		this.keyID = keyID;
 	}
 
 	public String getfName() {

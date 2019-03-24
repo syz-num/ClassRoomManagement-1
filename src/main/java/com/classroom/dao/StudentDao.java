@@ -1,7 +1,6 @@
 package com.classroom.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -38,25 +37,90 @@ public class StudentDao {
 			rs = statement.executeUpdate();
 			if (rs > 0) {
 				System.out.println("A new user was inserted successfully!");
+				student.setMessage("Student has been added succesfully.");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return student;
 	}
 
-	public Object findById(String uSN) {
-		// TODO Auto-generated method stub
-		return null;
+	public Student findById(String USN) {
+		Connection conn = dbUtil.getConnection();
+		String sql = "SELECT usn, dob, doj, e_mail, f_name, m_name, l_name, gender, mobile_no, sem from CMS.student where USN='"+USN+"';";
+		ResultSet rs;
+		Student student = new Student();
+		try {
+			PreparedStatement statement = conn.prepareStatement(sql);
+			rs = statement.executeQuery(sql);
+			if (rs.next()) {
+				student.setUSN(rs.getString(1));
+				student.setDOB(rs.getDate(2));
+				student.setDOJ(rs.getDate(3));
+				student.seteMail(rs.getString(4));
+				student.setfName(rs.getString(5));
+				student.setmName(rs.getString(6));
+				student.setlName(rs.getString(7));
+				student.setGender(rs.getString(8));
+				student.setMobileNo(rs.getString(9));
+				student.setSem(rs.getInt(10));
+
+			} else {
+				student.setMessage("Student Not Found.");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return student;
 	}
 
 	public Student update(Student student) {
-		// TODO Auto-generated method stub
-		return null;
+		Connection conn = dbUtil.getConnection();
+		String sql = "UPDATE CMS.student set dob=?, doj=?, e_mail=?, f_name=?, m_name=?, l_name=?, gender=?, mobile_no=?, sem=? where usn=?;";
+		int rs;
+		try {
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setDate(1, new java.sql.Date(student.getDOB().getTime()));
+			statement.setDate(2, new java.sql.Date(student.getDOJ().getTime()));
+			statement.setString(3, student.geteMail());
+			statement.setString(4, student.getfName());
+			statement.setString(5, student.getmName());
+			statement.setString(6, student.getlName());
+			statement.setString(7, student.getGender());
+			statement.setString(8, student.getMobileNo());
+			statement.setInt(9, student.getSem());
+			statement.setString(10, student.getUSN());
+
+			rs = statement.executeUpdate();
+			if (rs > 0) {
+				System.out.println("A new user was inserted successfully!");
+				student.setMessage("Student has been updated succesfully.");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return student;
+
 	}
 
-	public void deleteById(String uSN) {
-		// TODO Auto-generated method stub
+	public Student deleteById(Student student) {
+		Connection conn = dbUtil.getConnection();
+		String sql = "DELETE from CMS.student where usn=?;";
+		int rs;
+		try {
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, student.getUSN());
+
+			rs = statement.executeUpdate();
+			if (rs > 0) {
+				System.out.println("A new user was inserted successfully!");
+				student = new Student();
+				student.setMessage("Student has been deleted succesfully.");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return student;
 
 	}
 

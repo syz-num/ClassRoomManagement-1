@@ -4,22 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.classroom.modal.Lecturer;
-import com.classroom.modal.Student;
 import com.classroom.modal.Subject;
 
 @Controller
 public class MainController {
 	
 	
-	@GetMapping("/AddLecturer")
-	public ModelAndView addLecturer() {
-		 Lecturer lecturer = new Lecturer();
-         System.out.println("Inside LecturerController.......");
-         ModelAndView modelAndView = new ModelAndView("LecturerRegistration");
-         modelAndView.addObject("lecturer", lecturer);
-         return modelAndView;
-	}
 	@GetMapping("/AddSubject")
 	public ModelAndView addSubject() {
 		 Subject subject  = new Subject();		 

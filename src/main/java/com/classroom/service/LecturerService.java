@@ -8,7 +8,7 @@ import com.classroom.modal.Lecturer;
 
 @Service
 public class LecturerService {
-	/*
+
 	@Autowired
 	private LecturerDao lecturerDao;
 
@@ -17,14 +17,14 @@ public class LecturerService {
 	}
 
 	public Lecturer getLectureById(String ID) {
-		return lecturerDao.findById(ID).orElse(null);
+		return lecturerDao.findById(ID);
 	}
 
-	public Lecturer updateStudent(Lecturer lecturer) {
-		return lecturerDao.save(lecturer);
+	public Lecturer updateLecturer(Lecturer lecturer) {
+		return lecturerDao.update(lecturer);
 	}
 
-	public void deleteStudent(String ID) {
-		lecturerDao.deleteById(ID);
+	public Lecturer deleteLecturer(Lecturer lecturer) {
+		return lecturerDao.deleteById(lecturer);
 	}
-*/}
+}

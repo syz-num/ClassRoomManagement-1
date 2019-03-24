@@ -3,11 +3,6 @@ package com.classroom.modal;
 import java.util.Date;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.FetchType;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-
 public class Student {
 
 	private String USN;
@@ -20,8 +15,9 @@ public class Student {
 	private String gender;
 	private Date DOB;
 	private Date DOJ;
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable
+	private String message;
+	private String operation;
+	private String keyUSN;
 	private Set<Subject> subjects;
 
 	public Set<Subject> getSubjects() {
@@ -34,6 +30,30 @@ public class Student {
 
 	public Date getDOB() {
 		return DOB;
+	}
+
+	public String getKeyUSN() {
+		return keyUSN;
+	}
+
+	public void setKeyUSN(String keyUSN) {
+		this.keyUSN = keyUSN;
+	}
+
+	public String getOperation() {
+		return operation;
+	}
+
+	public void setOperation(String operation) {
+		this.operation = operation;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 	public void setDOB(Date dOB) {
