@@ -21,7 +21,7 @@ public class StudentDao {
 
 	public Student save(Student student) {
 		Connection conn = dbUtil.getConnection();
-		String sql = "INSERT INTO CMS.student (usn, dob, doj, e_mail, f_name, m_name, l_name, gender, mobile_no, sem,deptid) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ";
+		String sql = "INSERT INTO cms.student (usn, dob, doj, e_mail, f_name, m_name, l_name, gender, mobile_no, sem,deptid) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ";
 		int rs;
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -50,7 +50,7 @@ public class StudentDao {
 
 	public Student findById(String USN) {
 		Connection conn = dbUtil.getConnection();
-		String sql = "SELECT usn, dob, doj, e_mail, f_name, m_name, l_name, gender, mobile_no, sem, deptid from CMS.student where USN='"
+		String sql = "SELECT usn, dob, doj, e_mail, f_name, m_name, l_name, gender, mobile_no, sem, deptid from cms.student where USN='"
 				+ USN + "';";
 		ResultSet rs;
 		Student student = new Student();
@@ -81,7 +81,7 @@ public class StudentDao {
 
 	public List<Student> findBySubectId(String subId) {
 		Connection conn = dbUtil.getConnection();
-		String sql = "SELECT S.usn, S.dob, S.doj, S.e_mail, S.f_name, S.m_name, S.l_name, S.gender, S.mobile_no, S.sem, S.deptid,SB.sub_id from CMS.student S,CMS.subject SB where S.deptid=SB.deptid and S.sem=SB.sem and SB.sub_id='"
+		String sql = "SELECT S.usn, S.dob, S.doj, S.e_mail, S.f_name, S.m_name, S.l_name, S.gender, S.mobile_no, S.sem, S.deptid,SB.sub_id from cms.student S,cms.subject SB where S.deptid=SB.deptid and S.sem=SB.sem and SB.sub_id='"
 				+ subId + "';";
 		ResultSet rs;
 		List<Student> studentList = new ArrayList<Student>();
@@ -113,7 +113,7 @@ public class StudentDao {
 
 	public Student update(Student student) {
 		Connection conn = dbUtil.getConnection();
-		String sql = "UPDATE CMS.student set dob=?, doj=?, e_mail=?, f_name=?, m_name=?, l_name=?, gender=?, mobile_no=?, sem=?,deptid=? where usn=?;";
+		String sql = "UPDATE cms.student set dob=?, doj=?, e_mail=?, f_name=?, m_name=?, l_name=?, gender=?, mobile_no=?, sem=?,deptid=? where usn=?;";
 		int rs;
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -143,7 +143,7 @@ public class StudentDao {
 
 	public Student deleteById(Student student) {
 		Connection conn = dbUtil.getConnection();
-		String sql = "DELETE from CMS.student where usn=?;";
+		String sql = "DELETE from cms.student where usn=?;";
 		int rs;
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);

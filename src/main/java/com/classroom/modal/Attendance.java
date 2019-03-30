@@ -1,6 +1,7 @@
 package com.classroom.modal;
 
 import java.util.Date;
+import java.util.List;
 
 public class Attendance {
 	private Double id;
@@ -11,10 +12,22 @@ public class Attendance {
 	private String subName;
 	private int unit;
 	private String isLab;
+	private List<Student> students;
 
 	public Double getId() {
 		return id;
 	}
+
+	
+	public List<Student> getStudents() {
+		return students;
+	}
+
+
+	public void setStudents(List<Student> students) {
+		this.students = students;
+	}
+
 
 	public String getSubName() {
 		return subName;

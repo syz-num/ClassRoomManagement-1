@@ -36,6 +36,7 @@
 						value="Search Lecturer" /></td>
 			</tr>
 		</table>
+		${lecturer.message}
 		<table>
 			<tr>
 				<td><spring:message code="lbl.ID" text="ID" /></td>
@@ -64,7 +65,11 @@
 			</tr>
 			<tr>
 				<td><spring:message code="lbl.gender" text="Gender" /></td>
-				<td><form:input path="gender" value="${lecturer.gender}" /></td>
+				<td><form:select path="gender">
+						<form:option value="${lecturer.gender}" label="${lecturer.gender}" />
+						<form:option value="MALE" label="MALE" />
+						<form:option value="FEMALE" label="FEMALE" />
+					</form:select></td>
 			</tr>
 
 			<tr>
@@ -73,9 +78,6 @@
 					var="doj" />
 				<td><form:input type="text" id="datepicker1" path="DOJ"
 						value="${doj}" /></td>
-			</tr>
-			<tr>
-				<td border="0" colspan="2"><textarea readonly>${lecturer.message}</textarea></td>
 			</tr>
 			<tr>
 				<td><form:input type="submit" path="operation"

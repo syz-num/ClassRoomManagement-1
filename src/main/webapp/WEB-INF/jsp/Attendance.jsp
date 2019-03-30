@@ -31,20 +31,25 @@
 		<spring:message code="lbl.page" text="Mark Attendance" />
 	</h2>
 	<br />
-	<form:form method="post" action="/">
+	<form:form method="post" action="/SaveAttendance"
+		modelAttribute="attendance">
+		<h3>${attendance.subID}</h3>
 		<table border="1">
 			<thead>
 				<th>USN</th>
 				<th>Name</th>
-				<th>Is Absent?</th>
+				<th>Is Present?</th>
 			</thead>
-			<c:forEach var="student" items="${sudentList}">
+			<c:forEach items="${attendance.students}" var="student"
+				varStatus="status">
 				<tr>
 					<td><spring:message code="lbl.USN" text="${student.USN}" /></td>
 					<td><spring:message code="lbl.fName"
 							text="${student.fName}&nbsp${student.mName}&nbsp${student.lName}" /></td>
-					<td><input type="checkbox" name="NO"
-						value="${student.isPresent}"></td>
+					<td><form:select path="students[${status.index}].isPresent">
+							<form:option value="YES" label="YES" />
+							<form:option value="NO" label="NO" />
+						</form:select></td>
 				</tr>
 			</c:forEach>
 

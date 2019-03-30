@@ -21,7 +21,7 @@ public class SubjectDao {
 
 	public Subject save(Subject subject) {
 		Connection conn = dbUtil.getConnection();
-		String sql = "INSERT INTO CMS.subject (sub_id, sub_name, lecturer_id, sem, is_elective, is_lab, credit, total_marks, course_stage, academic_year,deptid) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ";
+		String sql = "INSERT INTO cms.subject (sub_id, sub_name, lecturer_id, sem, is_elective, is_lab, credit, total_marks, course_stage, academic_year,deptid) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ";
 		int rs;
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -50,7 +50,7 @@ public class SubjectDao {
 
 	public Subject findById(String ID) {
 		Connection conn = dbUtil.getConnection();
-		String sql = "SELECT sub_id, sub_name, lecturer_id, sem, is_elective, is_lab, credit, total_marks, total_attendence, test1_attendence, test2_attendence, test3_attendence, course_stage, academic_year, deptid from CMS.subject where sub_id='"
+		String sql = "SELECT sub_id, sub_name, lecturer_id, sem, is_elective, is_lab, credit, total_marks, total_attendence, test1_attendence, test2_attendence, test3_attendence, course_stage, academic_year, deptid from cms.subject where sub_id='"
 				+ ID + "';";
 		ResultSet rs;
 		Subject subject = new Subject();
@@ -85,7 +85,7 @@ public class SubjectDao {
 
 	public List<String> findSubjectByLecturerId(String ID) {
 		Connection conn = dbUtil.getConnection();
-		String sql = "SELECT sub_id from CMS.subject where lecturer_id='" + ID + "';";
+		String sql = "SELECT sub_id from cms.subject where lecturer_id='" + ID + "';";
 		ResultSet rs;
 		List<String> list = new ArrayList<>();
 		try {
@@ -103,7 +103,7 @@ public class SubjectDao {
 
 	public Subject update(Subject subject) {
 		Connection conn = dbUtil.getConnection();
-		String sql = "UPDATE CMS.subject set  sub_name= ?,  lecturer_id= ?,  sem= ?,  is_elective= ?,  is_lab= ?,  credit= ?,  total_marks= ?,  course_stage= ?,  academic_year= ?,deptid=? where sub_id=?;";
+		String sql = "UPDATE cms.subject set  sub_name= ?,  lecturer_id= ?,  sem= ?,  is_elective= ?,  is_lab= ?,  credit= ?,  total_marks= ?,  course_stage= ?,  academic_year= ?,deptid=? where sub_id=?;";
 		int rs;
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -133,7 +133,7 @@ public class SubjectDao {
 
 	public Subject deleteById(Subject subject) {
 		Connection conn = dbUtil.getConnection();
-		String sql = "DELETE from CMS.subject where sub_id= ?;";
+		String sql = "DELETE from cms.subject where sub_id= ?;";
 		int rs;
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);

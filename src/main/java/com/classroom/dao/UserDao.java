@@ -19,7 +19,7 @@ public class UserDao {
 
 	public User save(User user) {
 		Connection conn = dbUtil.getConnection();
-		String sql = "INSERT INTO CMS.users (username, password, role, email) VALUES (?, ?, ?, ?, ?); ";
+		String sql = "INSERT INTO cms.users (username, password, role, email) VALUES (?, ?, ?, ?, ?); ";
 		int rs;
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -41,7 +41,7 @@ public class UserDao {
 
 	public User findById(String username) {
 		Connection conn = dbUtil.getConnection();
-		String sql = "SELECT username, password, role, email from CMS.users where username='" + username + "';";
+		String sql = "SELECT username, password, role, email from cms.users where username='" + username + "';";
 		ResultSet rs;
 		User user = new User();
 		try {
@@ -64,7 +64,7 @@ public class UserDao {
 
 	public User update(User user) {
 		Connection conn = dbUtil.getConnection();
-		String sql = "UPDATE CMS.users set  password=? ,  role=? ,  email=? where username=?;";
+		String sql = "UPDATE cms.users set  password=? ,  role=? ,  email=? where username=?;";
 		int rs;
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -88,7 +88,7 @@ public class UserDao {
 
 	public User deleteById(User user) {
 		Connection conn = dbUtil.getConnection();
-		String sql = "DELETE from CMS.users where username=?;";
+		String sql = "DELETE from cms.users where username=?;";
 		int rs;
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);

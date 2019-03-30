@@ -2,9 +2,8 @@ package com.classroom.modal;
 
 import java.util.Date;
 
-
 public class Lecturer {
-	
+
 	private String ID;
 	private String fName;
 	private String mName;
@@ -12,7 +11,7 @@ public class Lecturer {
 	private String eMail;
 	private String mobileNo;
 	private String gender;
-	private Date DOJ;
+	private Date DOJ = new Date();
 	private String message;
 	private String operation;
 	private String keyID;

@@ -26,6 +26,7 @@
 						value="Search Subject" /></td>
 			</tr>
 		</table>
+		${subject.message}
 		<table>
 			<tr>
 				<td><spring:message code="lbl.subID" text="Subject ID" /></td>
@@ -42,18 +43,37 @@
 			</tr>
 			<tr>
 				<td><spring:message code="lbl.sem" text="Semister" /></td>
-				<td><form:input path="sem" value="${subject.sem}" /></td>
+				<td><form:select path="sem">
+						<form:option value="${subject.sem}" label="${subject.sem}" />
+						<form:option value="1" label="1" />
+						<form:option value="2" label="2" />
+						<form:option value="3" label="3" />
+						<form:option value="4" label="4" />
+						<form:option value="5" label="5" />
+						<form:option value="6" label="6" />
+						<form:option value="7" label="7" />
+						<form:option value="8" label="8" />
+					</form:select></td>
 			</tr>
 
 			<tr>
 				<td>Is Elective Subject?</td>
-				<td><form:input path="isElective" value="${subject.isElective}" /></td>
+				<td><form:select path="isElective">
+						<form:option value="${subject.isElective}"
+							label="${subject.isElective}" />
+						<form:option value="NO" label="NO" />
+						<form:option value="YES" label="YES" />
+					</form:select></td>
+				<%-- <td><form:input path="isElective" value="${subject.isElective}" /></td> --%>
 
 			</tr>
 			<tr>
 				<td>Is Lab Subject?</td>
-				<td><form:input path="isLab" value="${subject.isLab}" /></td>
-
+				<td><form:select path="isLab">
+						<form:option value="${subject.isLab}" label="${subject.isLab}" />
+						<form:option value="NO" label="NO" />
+						<form:option value="YES" label="YES" />
+					</form:select></td>
 			</tr>
 
 
@@ -69,25 +89,25 @@
 				<td><spring:message code="lbl.totalAttendence"
 						text="totalAttendence" /></td>
 				<td><form:input path="totalAttendence"
-						value="${subject.totalAttendence}" /></td>
+						value="${subject.totalAttendence}" readonly="true"/></td>
 			</tr>
 			<tr>
 				<td><spring:message code="lbl.test1Attendence"
 						text="test1Attendence" /></td>
 				<td><form:input path="test1Attendence"
-						value="${subject.test1Attendence}" /></td>
+						value="${subject.test1Attendence}" readonly="true"/></td>
 			</tr>
 			<tr>
 				<td><spring:message code="lbl.test2Attendence"
 						text="test2Attendence" /></td>
 				<td><form:input path="test2Attendence"
-						value="${subject.test2Attendence}" /></td>
+						value="${subject.test2Attendence}" readonly="true"/></td>
 			</tr>
 			<tr>
 				<td><spring:message code="lbl.test3Attendence"
 						text="test3Attendence" /></td>
 				<td><form:input path="test3Attendence"
-						value="${subject.test3Attendence}" /></td>
+						value="${subject.test3Attendence}" readonly="true"/></td>
 			</tr>
 			<tr>
 				<td><spring:message code="lbl.deptId" text="Department Id" /></td>
@@ -101,9 +121,6 @@
 			</tr>
 
 
-			<tr>
-				<td border="0" colspan="2"><textarea readonly>${subject.message}</textarea></td>
-			</tr>
 			<tr>
 				<td><form:input type="submit" path="operation"
 						value="Add Subject" /></td>

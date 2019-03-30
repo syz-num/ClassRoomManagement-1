@@ -13,8 +13,8 @@ public class Student {
 	private String eMail;
 	private String mobileNo;
 	private String gender;
-	private Date DOB;
-	private Date DOJ;
+	private Date DOB=new Date();
+	private Date DOJ=new Date();
 	private String deptId;
 	private String message;
 	private String operation;

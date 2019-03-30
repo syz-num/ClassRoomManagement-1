@@ -19,7 +19,7 @@ public class LecturerDao {
 
 	public Lecturer save(Lecturer lecturer) {
 		Connection conn = dbUtil.getConnection();
-		String sql = "INSERT INTO CMS.lecturer (id, doj, email, f_name, m_name, l_name, gender, mobile_no) VALUES (?, ?, ?, ?, ?, ?, ?, ?); ";
+		String sql = "INSERT INTO cms.lecturer (id, doj, email, f_name, m_name, l_name, gender, mobile_no) VALUES (?, ?, ?, ?, ?, ?, ?, ?); ";
 		int rs;
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -45,7 +45,7 @@ public class LecturerDao {
 
 	public Lecturer findById(String ID) {
 		Connection conn = dbUtil.getConnection();
-		String sql = "SELECT id, doj, email, f_name, m_name, l_name, gender, mobile_no from CMS.lecturer where id='"
+		String sql = "SELECT id, doj, email, f_name, m_name, l_name, gender, mobile_no from cms.lecturer where id='"
 				+ ID + "';";
 		ResultSet rs;
 		Lecturer lecturer = new Lecturer();
@@ -73,7 +73,7 @@ public class LecturerDao {
 
 	public Lecturer update(Lecturer lecturer) {
 		Connection conn = dbUtil.getConnection();
-		String sql = "UPDATE CMS.lecturer set  doj=?, email=?, f_name=?, m_name=?, l_name=?, gender=?, mobile_no=? where id=?;";
+		String sql = "UPDATE cms.lecturer set  doj=?, email=?, f_name=?, m_name=?, l_name=?, gender=?, mobile_no=? where id=?;";
 		int rs;
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -100,7 +100,7 @@ public class LecturerDao {
 
 	public Lecturer deleteById(Lecturer lecturer) {
 		Connection conn = dbUtil.getConnection();
-		String sql = "DELETE from CMS.lecturer where id= ?;";
+		String sql = "DELETE from cms.lecturer where id= ?;";
 		int rs;
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);

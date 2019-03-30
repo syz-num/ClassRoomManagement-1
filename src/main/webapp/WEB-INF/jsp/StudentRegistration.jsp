@@ -40,6 +40,7 @@
 						value="Search Student" /></td>
 			</tr>
 		</table>
+		${student.message}
 		<table>
 			<tr>
 				<td><spring:message code="lbl.USN" text="USN" /></td>
@@ -63,7 +64,17 @@
 			</tr>
 			<tr>
 				<td><spring:message code="lbl.sem" text="Semister" /></td>
-				<td><form:input path="sem" value="${student.sem}" /></td>
+				<td><form:select path="sem">
+						<form:option value="${student.sem}" label="${student.sem}" />
+						<form:option value="1" label="1" />
+						<form:option value="2" label="2" />
+						<form:option value="3" label="3" />
+						<form:option value="4" label="4" />
+						<form:option value="5" label="5" />
+						<form:option value="6" label="6" />
+						<form:option value="7" label="7" />
+						<form:option value="8" label="8" />
+					</form:select></td>
 			</tr>
 			<tr>
 				<td><spring:message code="lbl.mobileNo" text="Mobile Num" /></td>
@@ -71,7 +82,11 @@
 			</tr>
 			<tr>
 				<td><spring:message code="lbl.gender" text="Gender" /></td>
-				<td><form:input path="gender" value="${student.gender}" /></td>
+				<td><form:select path="gender">
+						<form:option value="${student.gender}" label="${student.gender}" />
+						<form:option value="MALE" label="MALE" />
+						<form:option value="FEMALE" label="FEMALE" />
+					</form:select></td>
 			</tr>
 			<tr>
 				<td><spring:message code="lbl.DOB" text="Date of Birth" /></td>
@@ -90,9 +105,6 @@
 			<tr>
 				<td><spring:message code="lbl.deptId" text="Department Id" /></td>
 				<td><form:input path="deptId" value="${student.deptId}" /></td>
-			</tr>
-			<tr>
-				<td border="0" colspan="2"><textarea readonly>${student.message}</textarea></td>
 			</tr>
 			<tr>
 				<td><form:input type="submit" path="operation"
