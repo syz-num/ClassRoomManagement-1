@@ -31,9 +31,19 @@
 		<spring:message code="lbl.page" text="Mark Attendance" />
 	</h2>
 	<br />
-	<form:form method="post" action="/SaveAttendance"
+	<form:form method="post" action="SaveAttendance"
 		modelAttribute="attendance">
-		<h3>${attendance.subID}</h3>
+		<table>
+			<tr>
+				<td><form:input type="text" path="subID"
+						value="${attendance.subID}" /></td>
+				<td><fmt:formatDate value="${attendance.date}"
+						pattern="MM/dd/yyyy" var="date" />
+				<td><form:input type="text" id="datepicker2" path="date"
+						value="${date}" /></td>
+				<td><form:input type="text" path="unit" /></td>
+			</tr>
+		</table>
 		<table border="1">
 			<thead>
 				<th>USN</th>
@@ -43,7 +53,8 @@
 			<c:forEach items="${attendance.students}" var="student"
 				varStatus="status">
 				<tr>
-					<td><spring:message code="lbl.USN" text="${student.USN}" /></td>
+					<td><form:input path="students[${status.index}].USN"
+							value="${student.USN}" readonly="true" /></td>
 					<td><spring:message code="lbl.fName"
 							text="${student.fName}&nbsp${student.mName}&nbsp${student.lName}" /></td>
 					<td><form:select path="students[${status.index}].isPresent">

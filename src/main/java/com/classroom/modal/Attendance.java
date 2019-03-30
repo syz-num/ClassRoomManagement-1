@@ -7,7 +7,7 @@ public class Attendance {
 	private Double id;
 	private String subID;
 	private String USN;
-	private Date date;
+	private Date date = new Date();
 	private String dayOfWeek;
 	private String subName;
 	private int unit;
@@ -18,16 +18,13 @@ public class Attendance {
 		return id;
 	}
 
-	
 	public List<Student> getStudents() {
 		return students;
 	}
 
-
 	public void setStudents(List<Student> students) {
 		this.students = students;
 	}
-
 
 	public String getSubName() {
 		return subName;
