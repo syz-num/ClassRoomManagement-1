@@ -50,11 +50,11 @@ public class AttendanceDao {
 				PreparedStatement statement = conn.prepareStatement(sql);
 				statement.setString(1, student.getUSN());
 				statement.setString(2, attendace.getSubID());
-				statement.setString(3, attendace.getSubName());
+				statement.setString(3, subject.getSubName());
 				statement.setDate(4, new java.sql.Date(attendace.getDate().getTime()));
 				statement.setString(5, attendace.getDayOfWeek());
 				statement.setInt(6, attendace.getUnit());
-				statement.setString(7, attendace.getIsLab());
+				statement.setString(7, subject.getIsLab());
 				rs = statement.executeUpdate();
 				StudentSubData studentSubData = studentSubDataDao.findById(student.getUSN(), attendace.getSubID());
 				if (attendace.getCourseStage().equals("TEST1")) {
