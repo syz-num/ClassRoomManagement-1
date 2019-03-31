@@ -11,10 +11,10 @@ public class Subject {
 	private String isLab;
 	private int credit;
 	private int totalMarks;
-	private float totalAttendence;
-	private float test1Attendence;
-	private float test2Attendence;
-	private float test3Attendence;
+	private float totalAttendance;
+	private float test1Attendance;
+	private float test2Attendance;
+	private float test3Attendance;
 	private String courseStage;
 	private int academicYear;
 	private String deptId;
@@ -75,36 +75,36 @@ public class Subject {
 		return subID;
 	}
 
-	public float getTotalAttendence() {
-		return totalAttendence;
+	public float getTotalAttendance() {
+		return totalAttendance;
 	}
 
-	public void setTotalAttendence(float totalAttendence) {
-		this.totalAttendence = totalAttendence;
+	public void setTotalAttendance(float totalAttendance) {
+		this.totalAttendance = totalAttendance;
 	}
 
-	public float getTest1Attendence() {
-		return test1Attendence;
+	public float getTest1Attendance() {
+		return test1Attendance;
 	}
 
-	public void setTest1Attendence(float test1Attendence) {
-		this.test1Attendence = test1Attendence;
+	public void setTest1Attendance(float test1Attendance) {
+		this.test1Attendance = test1Attendance;
 	}
 
-	public float getTest2Attendence() {
-		return test2Attendence;
+	public float getTest2Attendance() {
+		return test2Attendance;
 	}
 
-	public void setTest2Attendence(float test2Attendence) {
-		this.test2Attendence = test2Attendence;
+	public void setTest2Attendance(float test2Attendance) {
+		this.test2Attendance = test2Attendance;
 	}
 
-	public float getTest3Attendence() {
-		return test3Attendence;
+	public float getTest3Attendance() {
+		return test3Attendance;
 	}
 
-	public void setTest3Attendence(float test3Attendence) {
-		this.test3Attendence = test3Attendence;
+	public void setTest3Attendance(float test3Attendance) {
+		this.test3Attendance = test3Attendance;
 	}
 
 	public void setSubID(String subID) {

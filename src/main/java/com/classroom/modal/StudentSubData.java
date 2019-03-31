@@ -17,7 +17,7 @@ public class StudentSubData {
 	private float test1Attendance;
 	private float test2Attendance;
 	private float test3Attendance;
-	private float totalAttendence;
+	private float totalAttendance;
 	private float labInternalMarks;
 
 	public String getSubID() {
@@ -140,12 +140,12 @@ public class StudentSubData {
 		this.test3Attendance = test3Attendance;
 	}
 
-	public float getTotalAttendence() {
-		return totalAttendence;
+	public float getTotalAttendance() {
+		return totalAttendance;
 	}
 
-	public void setTotalAttendence(float totalAttendence) {
-		this.totalAttendence = totalAttendence;
+	public void setTotalAttendance(float totalAttendance) {
+		this.totalAttendance = totalAttendance;
 	}
 
 	public float getLabInternalMarks() {

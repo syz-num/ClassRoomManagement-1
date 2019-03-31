@@ -44,6 +44,12 @@ public class SubjectDao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return subject;
 	}
@@ -66,10 +72,10 @@ public class SubjectDao {
 				subject.setIsLab(rs.getString(6));
 				subject.setCredit(rs.getInt(7));
 				subject.setTotalMarks(rs.getInt(8));
-				subject.setTotalAttendence(rs.getInt(9));
-				subject.setTest1Attendence(rs.getFloat(10));
-				subject.setTest2Attendence(rs.getFloat(11));
-				subject.setTest3Attendence(rs.getFloat(12));
+				subject.setTotalAttendance(rs.getInt(9));
+				subject.setTest1Attendance(rs.getFloat(10));
+				subject.setTest2Attendance(rs.getFloat(11));
+				subject.setTest3Attendance(rs.getFloat(12));
 				subject.setCourseStage(rs.getString(13));
 				subject.setAcademicYear(rs.getInt(14));
 				subject.setDeptId(rs.getString(15));
@@ -97,13 +103,19 @@ public class SubjectDao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return list;
 	}
 
 	public Subject update(Subject subject) {
 		Connection conn = dbUtil.getConnection();
-		String sql = "UPDATE cms.subject set  sub_name= ?,  lecturer_id= ?,  sem= ?,  is_elective= ?,  is_lab= ?,  credit= ?,  total_marks= ?,  course_stage= ?,  academic_year= ?,deptid=? where sub_id=?;";
+		String sql = "UPDATE cms.subject set  sub_name= ?,  lecturer_id= ?,  sem= ?,  is_elective= ?,  is_lab= ?,  credit= ?,  total_marks= ?,  course_stage= ?,  academic_year= ?,deptid=?,test1_attendence=?,test2_attendence=?,test3_attendence=?,total_attendence =? where sub_id=?;";
 		int rs;
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -117,7 +129,11 @@ public class SubjectDao {
 			statement.setString(8, subject.getCourseStage());
 			statement.setInt(9, subject.getAcademicYear());
 			statement.setString(10, subject.getDeptId());
-			statement.setString(11, subject.getSubID());
+			statement.setFloat(11, subject.getTest1Attendance());
+			statement.setFloat(12, subject.getTest2Attendance());
+			statement.setFloat(13, subject.getTest3Attendance());
+			statement.setFloat(14, subject.getTotalAttendance());
+			statement.setString(15, subject.getSubID());
 
 			rs = statement.executeUpdate();
 			if (rs > 0) {
@@ -126,6 +142,12 @@ public class SubjectDao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return subject;
 
@@ -149,6 +171,12 @@ public class SubjectDao {
 			e.printStackTrace();
 			return subject;
 
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return subject;
 

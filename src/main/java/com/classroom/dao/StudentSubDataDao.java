@@ -21,7 +21,7 @@ public class StudentSubDataDao {
 
 	public StudentSubData save(StudentSubData studentSubData) {
 		Connection conn = dbUtil.getConnection();
-		String sql = "INSERT INTO cms.studentSubData (usn,  sub_id) VALUES (?, ?); ";
+		String sql = "INSERT INTO cms.student_sub_data (usn,  sub_id) VALUES (?, ?); ";
 		int rs;
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -34,14 +34,20 @@ public class StudentSubDataDao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return studentSubData;
 	}
 
 	public StudentSubData findById(String ID, String subId) {
 		Connection conn = dbUtil.getConnection();
-		String sql = "SELECT usn,  sub_id,  quiz1_marks,  quiz2_marks,  quiz3_marks,  requiz_marks, assignment_marks,  test1_marks,  test2_marks,  test3_marks,  avg_test_marks,  test1_attendence, test2_attendence, test3_attendence, total_attendence,  lab_internal_marks  from cms.studentSubData where sub_id='"
-				+ ID + " and sub_id=" + subId + "';";
+		String sql = "SELECT usn,  sub_id,  quiz1_marks,  quiz2_marks,  quiz3_marks,  requiz_marks, assignment_marks,  test1_marks,  test2_marks,  test3_marks,  avg_test_marks,  test1_attendence, test2_attendence, test3_attendence, total_attendence,  lab_internal_marks  from cms.student_sub_data where usn='"
+				+ ID + "' and sub_id='" + subId + "';";
 		ResultSet rs;
 		StudentSubData studentSubData = new StudentSubData();
 		try {
@@ -62,7 +68,7 @@ public class StudentSubDataDao {
 				studentSubData.setTest1Attendance(rs.getFloat(12));
 				studentSubData.setTest2Attendance(rs.getFloat(13));
 				studentSubData.setTest3Attendance(rs.getFloat(14));
-				studentSubData.setTotalAttendence(rs.getFloat(15));
+				studentSubData.setTotalAttendance(rs.getFloat(15));
 				studentSubData.setLabInternalMarks(rs.getFloat(16));
 
 			}
@@ -74,7 +80,7 @@ public class StudentSubDataDao {
 
 	public List<String> findStudentSubDataBySubId(String subId) {
 		Connection conn = dbUtil.getConnection();
-		String sql = "SELECT sub_id from cms.studentSubData where sub_id='" + subId + "';";
+		String sql = "SELECT sub_id from cms.student_sub_data where sub_id='" + subId + "';";
 		ResultSet rs;
 		List<String> list = new ArrayList<>();
 		try {
@@ -86,13 +92,19 @@ public class StudentSubDataDao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return list;
 	}
 
 	public StudentSubData update(StudentSubData studentSubData) {
 		Connection conn = dbUtil.getConnection();
-		String sql = "UPDATE cms.studentSubData set quiz1_marks =?, quiz2_marks =?, quiz3_marks =?, requiz_marks, assignment_marks =?, test1_marks =?, test2_marks =?, test3_marks =?, avg_test_marks =?, test1_attendence, test2_attendence, test3_attendence, total_attendence =?, lab_internal_marks  where usn =? and sub_id =?;";
+		String sql = "UPDATE cms.student_sub_data set quiz1_marks =?, quiz2_marks =?, quiz3_marks =?, requiz_marks =?, assignment_marks =?, test1_marks =?, test2_marks =?, test3_marks =?, avg_test_marks =?, test1_attendence=?, test2_attendence=?, test3_attendence=?, total_attendence =?, lab_internal_marks=?  where usn =? and sub_id =?;";
 		int rs;
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -108,17 +120,22 @@ public class StudentSubDataDao {
 			statement.setFloat(10, studentSubData.getTest1Attendance());
 			statement.setFloat(11, studentSubData.getTest2Attendance());
 			statement.setFloat(12, studentSubData.getTest3Attendance());
-			statement.setFloat(13, studentSubData.getTotalAttendence());
+			statement.setFloat(13, studentSubData.getTotalAttendance());
 			statement.setFloat(14, studentSubData.getLabInternalMarks());
 			statement.setString(15, studentSubData.getUSN());
 			statement.setString(16, studentSubData.getSubID());
-
 			rs = statement.executeUpdate();
 			if (rs > 0) {
 				System.out.println("A new StudentSubData was inserted successfully!");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return studentSubData;
 
@@ -126,7 +143,7 @@ public class StudentSubDataDao {
 
 	public StudentSubData deleteById(StudentSubData studentSubData) {
 		Connection conn = dbUtil.getConnection();
-		String sql = "DELETE from cms.studentSubData where sub_id= ?;";
+		String sql = "DELETE from cms.student_sub_data where sub_id= ?;";
 		int rs;
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -141,6 +158,12 @@ public class StudentSubDataDao {
 			e.printStackTrace();
 			return studentSubData;
 
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return studentSubData;
 

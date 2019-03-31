@@ -86,28 +86,28 @@
 				<td><form:input path="totalMarks" value="${subject.totalMarks}" /></td>
 			</tr>
 			<tr>
-				<td><spring:message code="lbl.totalAttendence"
-						text="totalAttendence" /></td>
-				<td><form:input path="totalAttendence"
-						value="${subject.totalAttendence}" readonly="true"/></td>
+				<td><spring:message code="lbl.totalAttendance"
+						text="totalAttendance" /></td>
+				<td><form:input path="totalAttendance"
+						value="${subject.totalAttendance}" readonly="true"/></td>
 			</tr>
 			<tr>
-				<td><spring:message code="lbl.test1Attendence"
-						text="test1Attendence" /></td>
-				<td><form:input path="test1Attendence"
-						value="${subject.test1Attendence}" readonly="true"/></td>
+				<td><spring:message code="lbl.test1Attendance"
+						text="test1Attendance" /></td>
+				<td><form:input path="test1Attendance"
+						value="${subject.test1Attendance}" readonly="true"/></td>
 			</tr>
 			<tr>
-				<td><spring:message code="lbl.test2Attendence"
-						text="test2Attendence" /></td>
-				<td><form:input path="test2Attendence"
-						value="${subject.test2Attendence}" readonly="true"/></td>
+				<td><spring:message code="lbl.test2Attendance"
+						text="test2Attendance" /></td>
+				<td><form:input path="test2Attendance"
+						value="${subject.test2Attendance}" readonly="true"/></td>
 			</tr>
 			<tr>
-				<td><spring:message code="lbl.test3Attendence"
-						text="test3Attendence" /></td>
-				<td><form:input path="test3Attendence"
-						value="${subject.test3Attendence}" readonly="true"/></td>
+				<td><spring:message code="lbl.test3Attendance"
+						text="test3Attendance" /></td>
+				<td><form:input path="test3Attendance"
+						value="${subject.test3Attendance}" readonly="true"/></td>
 			</tr>
 			<tr>
 				<td><spring:message code="lbl.deptId" text="Department Id" /></td>
