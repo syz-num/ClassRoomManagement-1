@@ -8,7 +8,7 @@ import com.classroom.modal.StudentSubData;
 
 @Service
 public class StudentSubDataService {
-	/*
+
 	@Autowired
 	private StudentSubDataDao studentSubDataDao;
 
@@ -16,16 +16,16 @@ public class StudentSubDataService {
 		return studentSubDataDao.save(studentSubData);
 	}
 
-	public StudentSubData getStudentSubDataById(String USN) {
-		return studentSubDataDao.findById(USN).orElse(null);
+	public StudentSubData getStudentSubDataById(String USN, String subId) {
+		return studentSubDataDao.findById(USN, subId);
 	}
 
 	public StudentSubData updateStudent(StudentSubData studentSubData) {
 		return studentSubDataDao.save(studentSubData);
 	}
 
-	public void deleteStudent(String USN) {
-		studentSubDataDao.deleteById(USN);
+	public void deleteStudent(StudentSubData studentSubData) {
+		studentSubDataDao.deleteById(studentSubData);
 	}
-*/
+
 }

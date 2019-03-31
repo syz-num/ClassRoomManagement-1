@@ -20,7 +20,7 @@ public class AttendanceDao {
 	public void save(Attendance attendace) {
 		Connection conn = dbUtil.getConnection();
 		String sql = "INSERT INTO cms.attendance ( usn, sub_id, sub_name,date, day_of_week,unit, is_lab) VALUES (?, ?, ?, ?, ?, ?, ?); ";
-		String studentsql = "INSERT INTO cms.attendace (id, usn, sub_id, sub_name,date, day_of_week,unit, is_lab) VALUES (?, ?, ?, ?, ?, ?, ?); ";
+
 		String subjectsql = "INSERT INTO cms.attendace (id, usn, sub_id, sub_name,date, day_of_week,unit, is_lab) VALUES (?, ?, ?, ?, ?, ?, ?); ";
 		int rs;
 		try {
@@ -34,6 +34,27 @@ public class AttendanceDao {
 				statement.setInt(6, attendace.getUnit());
 				statement.setString(7, attendace.getIsLab());
 				rs = statement.executeUpdate();
+				if (attendace.getCourseStage().equals("TEST1")) {
+					String studentsql = "UPDATE cms.student_sub_data set test1_attendence=test1_attendence+"
+							+ attendace.getUnit() + ", total_attendence=total_attendence+" + attendace.getUnit()
+							+ " where usn=" + student.getUSN() + ";";
+					PreparedStatement statement1 = conn.prepareStatement(studentsql);
+					rs = statement1.executeUpdate();
+				}
+				if (attendace.getCourseStage().equals("TEST2")) {
+					String studentsql = "UPDATE cms.student_sub_data set test2_attendence=test2_attendence+"
+							+ attendace.getUnit() + ", total_attendence=total_attendence+" + attendace.getUnit()
+							+ " where usn=" + student.getUSN() + ";";
+					PreparedStatement statement1 = conn.prepareStatement(studentsql);
+					rs = statement1.executeUpdate();
+				}
+				if (attendace.getCourseStage().equals("TEST3")) {
+					String studentsql = "UPDATE cms.student_sub_data set test3_attendence=test3_attendence+"
+							+ attendace.getUnit() + ", total_attendence=total_attendence+" + attendace.getUnit()
+							+ " where usn=" + student.getUSN() + ";";
+					PreparedStatement statement1 = conn.prepareStatement(studentsql);
+					rs = statement1.executeUpdate();
+				}
 			}
 
 		} catch (SQLException e) {

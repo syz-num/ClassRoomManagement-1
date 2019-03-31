@@ -148,7 +148,6 @@ public class StudentDao {
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setString(1, student.getUSN());
-
 			rs = statement.executeUpdate();
 			if (rs > 0) {
 				System.out.println("A new user was inserted successfully!");

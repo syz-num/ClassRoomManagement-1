@@ -12,10 +12,19 @@ public class Attendance {
 	private String subName;
 	private int unit;
 	private String isLab;
+	private String courseStage;
 	private List<Student> students;
 
 	public Double getId() {
 		return id;
+	}
+
+	public String getCourseStage() {
+		return courseStage;
+	}
+
+	public void setCourseStage(String courseStage) {
+		this.courseStage = courseStage;
 	}
 
 	public List<Student> getStudents() {

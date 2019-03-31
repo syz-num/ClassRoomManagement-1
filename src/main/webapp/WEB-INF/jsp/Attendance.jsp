@@ -42,6 +42,13 @@
 				<td><form:input type="text" id="datepicker2" path="date"
 						value="${date}" /></td>
 				<td><form:input type="text" path="unit" /></td>
+				<td><form:select path="courseStage">
+						<form:option value="${attendance.courseStage}"
+							label="${attendance.courseStage}" />
+						<form:option value="TEST1" label="TEST1" />
+						<form:option value="TEST2" label="TEST2" />
+						<form:option value="TEST3" label="TEST3" />
+					</form:select></td>
 			</tr>
 		</table>
 		<table border="1">

@@ -20,8 +20,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.classroom.modal.Attendance;
 import com.classroom.modal.Student;
+import com.classroom.modal.Subject;
 import com.classroom.service.AttendenceService;
 import com.classroom.service.CommonService;
+import com.classroom.service.SubjectService;
 
 @Controller
 public class AttendanceController {
@@ -31,6 +33,9 @@ public class AttendanceController {
 
 	@Autowired
 	private AttendenceService attendenceService;
+
+	@Autowired
+	private SubjectService subjectService;
 
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
@@ -44,6 +49,8 @@ public class AttendanceController {
 	public ModelAndView markAttendance(@RequestParam("subId") String subId, HttpSession session, ModelMap modelMap) {
 		List<Student> studentList = commonService.findStudentsBySubId(subId);
 		Attendance attendance = new Attendance();
+		Subject subject = subjectService.getSubjectById(subId);
+		attendance.setSubName(subject.getSubName());
 		attendance.setSubID(subId);
 		attendance.setStudents(studentList);
 		ModelAndView modelAndView = new ModelAndView("Attendance");
@@ -55,6 +62,9 @@ public class AttendanceController {
 	@RequestMapping(value = "SaveAttendance", method = RequestMethod.POST)
 	public String saveAttendance(@ModelAttribute Attendance attendance, HttpSession session, ModelMap modelMap) {
 		System.out.println("Saving Attedence..");
+		Subject subject = subjectService.getSubjectById(attendance.getSubID());
+		subject.setCourseStage(attendance.getCourseStage());
+		subjectService.updateSubject(subject);
 		attendenceService.saveAttendace(attendance);
 		return "LecturerHomePage";
 	}
