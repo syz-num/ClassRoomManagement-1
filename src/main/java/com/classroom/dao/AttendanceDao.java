@@ -40,6 +40,7 @@ public class AttendanceDao {
 			if (attendace.getCourseStage().equals("TEST3")) {
 				subject.setTest2Attendance(subject.getTest2Attendance() + attendace.getUnit());
 			}
+			subject.setCourseStage(attendace.getCourseStage());
 			subject.setTotalAttendance(
 					subject.getTest1Attendance() + subject.getTest2Attendance() + subject.getTest3Attendance());
 			subject.setCourseStage(attendace.getCourseStage());
