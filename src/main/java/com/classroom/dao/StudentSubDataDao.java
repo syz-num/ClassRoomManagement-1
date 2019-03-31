@@ -168,4 +168,41 @@ public class StudentSubDataDao {
 		return studentSubData;
 
 	}
+
+	public List<StudentSubData> findStudentSubDataByUSN(String usn) {
+		Connection conn = dbUtil.getConnection();
+		String sql = "SELECT usn,  sub_id,  quiz1_marks,  quiz2_marks,  quiz3_marks,  requiz_marks, assignment_marks,  test1_marks,  test2_marks,  test3_marks,  avg_test_marks,  test1_attendence, test2_attendence, test3_attendence, total_attendence,  lab_internal_marks  from cms.student_sub_data where usn='"
+				+ usn + "';";
+		ResultSet rs;
+
+		List<StudentSubData> studentSubDatas = new ArrayList<>();
+		try {
+			PreparedStatement statement = conn.prepareStatement(sql);
+			rs = statement.executeQuery(sql);
+			while (rs.next()) {
+				StudentSubData studentSubData = new StudentSubData();
+				studentSubData.setUSN(rs.getString(1));
+				studentSubData.setSubID(rs.getString(2));
+				studentSubData.setQuiz1Marks(rs.getFloat(3));
+				studentSubData.setQuiz2Marks(rs.getFloat(4));
+				studentSubData.setQuiz3Marks(rs.getFloat(5));
+				studentSubData.setRequizMarks(rs.getFloat(6));
+				studentSubData.setAssignmentMarks(rs.getFloat(7));
+				studentSubData.setTest1Marks(rs.getFloat(8));
+				studentSubData.setTest2Marks(rs.getFloat(9));
+				studentSubData.setTest3Marks(rs.getFloat(10));
+				studentSubData.setAvgTestMarks(rs.getFloat(11));
+				studentSubData.setTest1Attendance(rs.getFloat(12));
+				studentSubData.setTest2Attendance(rs.getFloat(13));
+				studentSubData.setTest3Attendance(rs.getFloat(14));
+				studentSubData.setTotalAttendance(rs.getFloat(15));
+				studentSubData.setLabInternalMarks(rs.getFloat(16));
+				studentSubDatas.add(studentSubData);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return studentSubDatas;
+
+	}
 }

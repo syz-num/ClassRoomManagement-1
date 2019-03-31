@@ -12,6 +12,21 @@
 </head>
 
 <body>
+	<div id="wrapperDiv" align="center">
+		<div id="div1" style="display: inline-block; vertical-align: top;">
+			<a href="/" title="Home" rel="home" class="site-logo"><img
+				src="https://rvce.edu.in/sites/default/files/logo_0.png" alt="Home"></a>
+		</div>
+		<div id="div2" style="display: inline-block; vertical-align: top;">
+			<h4>Rashtreeya Sikshana Samithi Trust</h4>
+			<h2>
+				<a>R V College of Engineering </a>
+			</h2>
+		</div>
+		<div id="div1" style="display: inline-block; vertical-align: bottom;">
+			<a href="/logout">logout</a>
+		</div>
+	</div>
 	<h2>
 		<spring:message code="lbl.page" text="Add New Subject" />
 	</h2>
@@ -89,25 +104,25 @@
 				<td><spring:message code="lbl.totalAttendance"
 						text="totalAttendance" /></td>
 				<td><form:input path="totalAttendance"
-						value="${subject.totalAttendance}" readonly="true"/></td>
+						value="${subject.totalAttendance}" readonly="true" /></td>
 			</tr>
 			<tr>
 				<td><spring:message code="lbl.test1Attendance"
 						text="test1Attendance" /></td>
 				<td><form:input path="test1Attendance"
-						value="${subject.test1Attendance}" readonly="true"/></td>
+						value="${subject.test1Attendance}" readonly="true" /></td>
 			</tr>
 			<tr>
 				<td><spring:message code="lbl.test2Attendance"
 						text="test2Attendance" /></td>
 				<td><form:input path="test2Attendance"
-						value="${subject.test2Attendance}" readonly="true"/></td>
+						value="${subject.test2Attendance}" readonly="true" /></td>
 			</tr>
 			<tr>
 				<td><spring:message code="lbl.test3Attendance"
 						text="test3Attendance" /></td>
 				<td><form:input path="test3Attendance"
-						value="${subject.test3Attendance}" readonly="true"/></td>
+						value="${subject.test3Attendance}" readonly="true" /></td>
 			</tr>
 			<tr>
 				<td><spring:message code="lbl.deptId" text="Department Id" /></td>

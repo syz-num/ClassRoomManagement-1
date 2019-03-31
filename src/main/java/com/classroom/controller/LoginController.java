@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.classroom.modal.StudentSubData;
 import com.classroom.modal.User;
 import com.classroom.service.CommonService;
 import com.classroom.service.UserService;
@@ -48,7 +49,12 @@ public class LoginController {
 				session.setAttribute("subjectList", subjectList);
 				return "LecturerHomePage";
 			}
-			return "home";
+			if (user.getRole().equalsIgnoreCase("STUDENT")) {
+				List<StudentSubData> studentSubDatas = commonService.findStudentSubDataByUSN(user.getUsername());
+				session.setAttribute("studentSubDatas", studentSubDatas);
+				return "StudentHomePage";
+			}
+			return "index";
 		} else {
 			modelMap.put("error", "Invalid Credentials");
 			return "index";
