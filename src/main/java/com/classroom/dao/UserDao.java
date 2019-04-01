@@ -19,7 +19,7 @@ public class UserDao {
 
 	public User save(User user) {
 		Connection conn = dbUtil.getConnection();
-		String sql = "INSERT INTO cms.users (username, password, role, email) VALUES (?, ?, ?, ?, ?); ";
+		String sql = "INSERT INTO cms.users (username, password, role, email) VALUES (?, ?, ?, ?); ";
 		int rs;
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -30,7 +30,7 @@ public class UserDao {
 
 			rs = statement.executeUpdate();
 			if (rs > 0) {
-				System.out.println("A new user was inserted successfully!");
+				System.out.println("A new USER was inserted successfully!");
 				user.setMessage("User has been added succesfully.");
 			}
 		} catch (SQLException e) {

@@ -19,7 +19,8 @@
 			</h2>
 		</div>
 	</div>
-	<br> ${error }
+	<br>
+	<p align="center">${error }</p>
 	<br>
 	<form method="post" action="${pageContext.request.contextPath }/login">
 		<table border="0" cellpadding="2" cellspacing="2" align="center">

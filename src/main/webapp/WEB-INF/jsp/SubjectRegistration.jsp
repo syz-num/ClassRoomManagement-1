@@ -24,7 +24,7 @@
 			</h2>
 		</div>
 		<div id="div1" style="display: inline-block; vertical-align: bottom;">
-			<a href="/logout">logout</a>
+			<a href="/home">home</a>&nbsp<a href="/logout">logout</a>
 		</div>
 	</div>
 	<h2>

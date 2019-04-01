@@ -54,6 +54,9 @@ public class LoginController {
 				session.setAttribute("studentSubDatas", studentSubDatas);
 				return "StudentHomePage";
 			}
+			if (user.getRole().equalsIgnoreCase("ADMIN")) {
+				return "AdminHomePage";
+			}
 			return "index";
 		} else {
 			modelMap.put("error", "Invalid Credentials");
@@ -65,6 +68,21 @@ public class LoginController {
 	public String logout(HttpSession session) {
 		session.removeAttribute("username");
 		session.removeAttribute("role");
+		return "index";
+	}
+
+	@RequestMapping(value = "home", method = RequestMethod.GET)
+	public String home(HttpSession session) {
+		if (((String) session.getAttribute("username")).equalsIgnoreCase("LECTURER")) {
+
+			return "LecturerHomePage";
+		}
+		if (((String) session.getAttribute("username")).equalsIgnoreCase("STUDENT")) {
+			return "StudentHomePage";
+		}
+		if (((String) session.getAttribute("username")).equalsIgnoreCase("ADMIN")) {
+			return "AdminHomePage";
+		}
 		return "index";
 	}
 

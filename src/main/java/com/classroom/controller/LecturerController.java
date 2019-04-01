@@ -1,6 +1,7 @@
 package com.classroom.controller;
 
 import java.sql.Date;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +15,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.classroom.modal.Lecturer;
+import com.classroom.modal.User;
 import com.classroom.service.LecturerService;
+import com.classroom.service.UserService;
 
 @Controller
 public class LecturerController {
 
 	@Autowired
 	private LecturerService lecturerService;
+
+	@Autowired
+	private UserService userService;
 
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
@@ -43,14 +49,24 @@ public class LecturerController {
 	public ModelAndView stduentOperation(@ModelAttribute Lecturer lecturer) {
 		System.out.println("#######################Inside LecturerOperation Conttroller#############");
 		ModelAndView modelAndView = null;
+		User user = new User();
+		user.setUsername(lecturer.getID());
+		user.setEmail(lecturer.geteMail());
+		user.setRole("LECTURER");
+		DateFormat dateFormat = new SimpleDateFormat("ddMMyyyy");
+		user.setPassword(dateFormat.format(lecturer.getDOJ()));
+
 		if (lecturer.getOperation().equals("Add Lecturer")) {
 			modelAndView = saveLecturer(lecturer);
+			userService.createUser(user);
 		}
 		if (lecturer.getOperation().equals("Update Lecturer")) {
 			modelAndView = updateLecturer(lecturer);
+			userService.updateUser(user);
 		}
 		if (lecturer.getOperation().equals("Delete Lecturer")) {
 			modelAndView = deleteLecturer(lecturer);
+			userService.deleteUser(user);
 		}
 		if (lecturer.getOperation().equals("Search Lecturer")) {
 			modelAndView = viewLecturer(lecturer);
