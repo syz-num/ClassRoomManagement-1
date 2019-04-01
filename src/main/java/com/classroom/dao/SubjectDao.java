@@ -187,4 +187,29 @@ public class SubjectDao {
 		return subject;
 
 	}
+
+	public List<String> getSubjectByClass(String deptId, int sem) {
+		Connection conn = dbUtil.getConnection();
+		String sql = "SELECT sub_id from cms.subject where deptid='" + deptId + "' and sem='" + sem + "';";
+		ResultSet rs;
+		List<String> list = new ArrayList<>();
+		try {
+			PreparedStatement statement = conn.prepareStatement(sql);
+			rs = statement.executeQuery(sql);
+			if (rs.next()) {
+				list.add(rs.getString(1));
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return list;
+
+	}
 }

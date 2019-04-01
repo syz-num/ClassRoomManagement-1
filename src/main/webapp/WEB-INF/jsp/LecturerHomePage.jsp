@@ -27,7 +27,7 @@
 		</div>
 	</div>
 	<h4>Welcome ${sessionScope.username },</h4>
-	<form method="post" action="MarkAttendance">
+	<form method="post">
 		<table>
 			<tr>
 				<td>Please select subject Id to mark attendence :</td>
@@ -39,7 +39,12 @@
 				</select></td>
 			</tr>
 			<tr>
-				<td><input type="submit" value="Mark Attendance"></td>
+				<td><input type="submit"
+					onclick="javascript: form.action='/MarkAttendance';"
+					value="Mark Attendance"></td>
+				<td><input type="submit"
+					onclick="javascript: form.action='/UpdateStudentData';"
+					value="Update Student Data"></td>
 			</tr>
 		</table>
 

@@ -2,6 +2,7 @@ package com.classroom.controller;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -20,13 +21,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.classroom.modal.Attendance;
 import com.classroom.modal.Student;
+import com.classroom.modal.StudentSubData;
 import com.classroom.modal.Subject;
 import com.classroom.service.AttendenceService;
 import com.classroom.service.CommonService;
+import com.classroom.service.StudentSubDataService;
 import com.classroom.service.SubjectService;
 
 @Controller
-public class AttendanceController {
+public class LeturerOperationController {
 
 	@Autowired
 	private CommonService commonService;
@@ -36,6 +39,9 @@ public class AttendanceController {
 
 	@Autowired
 	private SubjectService subjectService;
+
+	@Autowired
+	private StudentSubDataService studentSubDataService;
 
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
@@ -68,4 +74,21 @@ public class AttendanceController {
 		attendenceService.saveAttendace(attendance);
 		return "LecturerHomePage";
 	}
+
+	@RequestMapping(value = "UpdateStudentData", method = RequestMethod.POST)
+	public ModelAndView updateStudentsData(@RequestParam("subId") String subId, HttpSession session,
+			ModelMap modelMap) {
+		List<Student> studentList = commonService.findStudentsBySubId(subId);
+		List<StudentSubData> studentSubDatas = new ArrayList<>();
+		for (Student student : studentList) {
+			StudentSubData data = studentSubDataService.getStudentSubDataById(student.getUSN(), subId);
+			studentSubDatas.add(data);
+		}
+
+		ModelAndView modelAndView = new ModelAndView("StudentsData");
+		modelAndView.addObject("studentSubDatas", studentSubDatas);
+		return modelAndView;
+
+	}
+
 }

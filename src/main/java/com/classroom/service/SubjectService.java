@@ -25,6 +25,10 @@ public class SubjectService {
 		return subjectDao.findSubjectByLecturerId(lectureId);
 	}
 
+	public List<String> getSubjectByClass(String deptId, int sem) {
+		return subjectDao.getSubjectByClass(deptId, sem);
+	}
+
 	public Subject updateSubject(Subject subject) {
 		return subjectDao.update(subject);
 	}

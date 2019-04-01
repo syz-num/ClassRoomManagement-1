@@ -149,12 +149,12 @@ public class StudentSubDataDao {
 
 	public StudentSubData deleteById(StudentSubData studentSubData) {
 		Connection conn = dbUtil.getConnection();
-		String sql = "DELETE from cms.student_sub_data where sub_id= ?;";
+		String sql = "DELETE from cms.student_sub_data where sub_id= ? and usn=?;";
 		int rs;
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setString(1, studentSubData.getSubID());
-
+			statement.setString(2, studentSubData.getUSN());
 			rs = statement.executeUpdate();
 			if (rs > 0) {
 				System.out.println("A new StudentSubData was inserted successfully!");
