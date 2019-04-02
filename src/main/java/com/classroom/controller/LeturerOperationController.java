@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.classroom.modal.Attendance;
 import com.classroom.modal.Student;
+import com.classroom.modal.StudentData;
 import com.classroom.modal.StudentSubData;
 import com.classroom.modal.Subject;
 import com.classroom.service.AttendenceService;
@@ -84,11 +85,20 @@ public class LeturerOperationController {
 			StudentSubData data = studentSubDataService.getStudentSubDataById(student.getUSN(), subId);
 			studentSubDatas.add(data);
 		}
-
-		ModelAndView modelAndView = new ModelAndView("StudentsData");
-		modelAndView.addObject("studentSubDatas", studentSubDatas);
+		StudentData studentData = new StudentData();
+		studentData.setDatas(studentSubDatas);
+		studentData.setSubId(subId);
+		ModelAndView modelAndView = new ModelAndView("StudentData");
+		modelAndView.addObject("studentsData", studentData);
 		return modelAndView;
 
+	}
+
+	@RequestMapping(value = "SaveStudentData", method = RequestMethod.POST)
+	public String saveStudentData(@ModelAttribute StudentData studentData, HttpSession session, ModelMap modelMap) {
+		System.out.println("Saving SaveStudentData..");
+
+		return "LecturerHomePage";
 	}
 
 }
