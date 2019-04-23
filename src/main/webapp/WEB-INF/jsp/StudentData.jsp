@@ -9,7 +9,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mark Attendance</title>
+<title>Update Student Data</title>
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
@@ -73,6 +73,7 @@
 				<th>Test3 Attendance</th>
 				<th>Total Attendance</th>
 				<th>Lab Internal Marks</th>
+				<th>Subject Id</th>
 			</thead>
 			<c:forEach var="studentSubData" items="${studentsData.datas}"
 				varStatus="status">
@@ -109,6 +110,8 @@
 							value="${studentSubData.totalAttendance}" /></td>
 					<td><form:input path="datas[${status.index}].labInternalMarks"
 							value="${studentSubData.labInternalMarks}" /></td>
+					<td><form:input path="datas[${status.index}].subID" readonly="true"
+							value="${studentSubData.subID}" /></td>
 				</tr>
 			</c:forEach>
 			<tr>

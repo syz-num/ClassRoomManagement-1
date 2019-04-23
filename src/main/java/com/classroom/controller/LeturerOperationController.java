@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.classroom.dao.StudentSubDataDao;
 import com.classroom.modal.Attendance;
 import com.classroom.modal.Student;
 import com.classroom.modal.StudentData;
@@ -97,6 +98,9 @@ public class LeturerOperationController {
 	@RequestMapping(value = "SaveStudentData", method = RequestMethod.POST)
 	public String saveStudentData(@ModelAttribute StudentData studentData, HttpSession session, ModelMap modelMap) {
 		System.out.println("Saving SaveStudentData..");
+		for (StudentSubData studentSubData : studentData.getDatas()) {
+			studentSubDataService.updateStudentSubData(studentSubData);
+		}
 
 		return "LecturerHomePage";
 	}

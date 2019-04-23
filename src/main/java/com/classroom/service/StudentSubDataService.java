@@ -20,8 +20,8 @@ public class StudentSubDataService {
 		return studentSubDataDao.findById(USN, subId);
 	}
 
-	public StudentSubData updateStudent(StudentSubData studentSubData) {
-		return studentSubDataDao.save(studentSubData);
+	public StudentSubData updateStudentSubData(StudentSubData studentSubData) {
+		return studentSubDataDao.update(studentSubData);
 	}
 
 	public void deleteStudent(StudentSubData studentSubData) {
