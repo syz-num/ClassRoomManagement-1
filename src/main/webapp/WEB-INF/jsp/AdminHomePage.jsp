@@ -1,13 +1,29 @@
+
 <meta charset="UTF-8" />
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <html>
 <head>
-
-<title>Student Home Page</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin homepage</title>
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+	$(function() {
+		$("#datepicker1").datepicker();
+	});
+	$(function() {
+		$("#datepicker2").datepicker();
+	});
+</script>
+<title>Student Registration</title>
 </head>
 
 <body>
@@ -22,6 +38,9 @@
 				<div class="nav-fostrap">
 					<ul>
 						<li><a href="/home">Home</a></li>
+						<li><a href="/AddStudent">Student Registration</a></li>
+						<li><a href="/AddLecturer">Lecturer Registration</a></li>
+						<li><a href="/AddSubject">Subject Registration</a></li>
 						<li><a href="/logout">Logout</a></li>
 					</ul>
 				</div>
@@ -32,57 +51,13 @@
 					<a href="" class="title-mobile">Fostrap</a>
 				</div>
 			</nav>
-
-			<br />
-			<div class='content'>
+		
+		<br />
+		
+			<div>
 				<h4>Welcome ${sessionScope.username },</h4>
 			</div>
-			<br>
-
-			<table>
-
-				<tr>
-					<th>Subject ID</th>
-					<th>Quiz1 Marks</th>
-					<th>Quiz2 Marks</th>
-					<th>Quiz3 Marks</th>
-					<th>Requiz Marks</th>
-					<th>Assignment Marks</th>
-					<th>Test1 Marks</th>
-					<th>Test2 Marks</th>
-					<th>Test3 Marks</th>
-					<th>Retest Marks</th>
-					<th>avgTestMarks</th>
-					<th>Test1 Attendance</th>
-					<th>Test2 Attendance</th>
-					<th>Test3 Attendance</th>
-					<th>Total Attendance</th>
-					<th>Lab Internal Marks</th>
-				</tr>
-
-				<c:forEach var="studentSubData"
-					items="${sessionScope.studentSubDatas}">
-					<tr>
-						<td>${studentSubData.subID}</td>
-						<td>${studentSubData.quiz1Marks}</td>
-						<td>${studentSubData.quiz2Marks}</td>
-						<td>${studentSubData.quiz3Marks}</td>
-						<td>${studentSubData.requizMarks}</td>
-						<td>${studentSubData.assignmentMarks}</td>
-						<td>${studentSubData.test1Marks}</td>
-						<td>${studentSubData.test2Marks}</td>
-						<td>${studentSubData.test3Marks}</td>
-						<td>${studentSubData.retestMarks}</td>
-						<td>${studentSubData.avgTestMarks}</td>
-						<td>${studentSubData.test1Attendance}</td>
-						<td>${studentSubData.test2Attendance}</td>
-						<td>${studentSubData.test3Attendance}</td>
-						<td>${studentSubData.totalAttendance}</td>
-						<td>${studentSubData.labInternalMarks}</td>
-					</tr>
-				</c:forEach>
-
-			</table>
+		
 		</div>
 	</div>
 </body>
