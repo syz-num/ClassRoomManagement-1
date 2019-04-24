@@ -61,6 +61,7 @@ public class LeturerOperationController {
 		attendance.setSubName(subject.getSubName());
 		attendance.setSubID(subId);
 		attendance.setStudents(studentList);
+		attendance.setCourseStage(subject.getCourseStage());
 		ModelAndView modelAndView = new ModelAndView("Attendance");
 		modelAndView.addObject("attendance", attendance);
 		return modelAndView;

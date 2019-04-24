@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
@@ -23,38 +23,28 @@
 </head>
 
 <body>
-	<div id="main">
-		<div class="container">
-			<div id="content">
-
-				<h2>R V College of Engineering</h2>
-
-			</div>
-			<nav>
-				<div class="nav-fostrap">
-					<ul>
-						<li><a href="/home">Home</a></li>
-						<li><a href="/AddStudent">Student Registration</a></li>
-						<li><a href="/AddLecturer">Lecturer Registration</a></li>
-						<li><a href="/AddSubject">Subject Registration</a></li>
-						<li><a href="/logout">Logout</a></li>
-					</ul>
-				</div>
-				<div class="nav-bg-fostrap">
-					<div class="navbar-fostrap">
-						<span></span> <span></span> <span></span>
-					</div>
-					<a href="" class="title-mobile">Fostrap</a>
-				</div>
-			</nav>
-		
-		<br />
+	<div id="wrapperDiv" align="center">
+		<div id="div1" style="display: inline-block; vertical-align: top;">
+			<a href="/" title="Home" rel="home" class="site-logo"><img
+				src="https://rvce.edu.in/sites/default/files/logo_0.png" alt="Home"></a>
+		</div>
+		<div id="div2" style="display: inline-block; vertical-align: top;">
+			<h4>Rashtreeya Sikshana Samithi Trust</h4>
+			<h2>
+				<a>R V College of Engineering </a>
+			</h2>
+		</div>
+		<div id="div1" style="display: inline-block; vertical-align: bottom;">
+			<a href="/home">home</a>&nbsp<a href="/logout">logout</a>
+		</div>
+	</div>
+	<h2>
+		<spring:message code="lbl.page" text="Add New Lecturer" />
+	</h2>
 	<br />
 	<form:form method="post" modelAttribute="lecturer"
 		action="LecturerOperation">
 		<table>
-		<caption>Lecturer Registration</caption>
-				<tr>
 			<tr>
 				<td><spring:message code="lbl.ID" text="ID" /></td>
 				<td><form:input path="keyID" value="${lecturer.keyID}" /></td>
@@ -62,10 +52,7 @@
 						value="Search Lecturer" /></td>
 			</tr>
 		</table>
-		<div align="center">
-				<span>${lecturer.message}</span>
-			</div>
-		<br>
+		${lecturer.message}
 		<table>
 			<tr>
 				<td><spring:message code="lbl.ID" text="ID" /></td>
@@ -118,7 +105,5 @@
 			</tr>
 		</table>
 	</form:form>
-		</div>
-	</div>
 </body>
 </html>

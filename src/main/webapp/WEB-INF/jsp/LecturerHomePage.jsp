@@ -6,48 +6,57 @@
 
 <html>
 <head>
-
+<link rel="stylesheet" type="text/css" href="css/style.css">
 <title>Lecturer Home Page</title>
 </head>
 
 <body>
-	<div id="wrapperDiv" align="center">
-		<div id="div1" style="display: inline-block; vertical-align: top;">
-			<a href="/" title="Home" rel="home" class="site-logo"><img
-				src="https://rvce.edu.in/sites/default/files/logo_0.png" alt="Home"></a>
-		</div>
-		<div id="div2" style="display: inline-block; vertical-align: top;">
-			<h4>Rashtreeya Sikshana Samithi Trust</h4>
-			<h2>
-				<a>R V College of Engineering </a>
-			</h2>
-		</div>
-		<div id="div1" style="display: inline-block; vertical-align: bottom;">
-			<a href="/logout">logout</a>
+	<div id="main">
+		<div class="container">
+			<div id="content">
+
+				<h2>R V College of Engineering</h2>
+
+			</div>
+			<nav>
+				<div class="nav-fostrap">
+					<ul align="right">
+						<li><a href="#">Home</a></li>
+						<li><a href="/logout">Logout</a></li>
+					</ul>
+				</div>
+				<div class="nav-bg-fostrap">
+					<div class="navbar-fostrap">
+						<span></span> <span></span> <span></span>
+					</div>
+					<a href="" class="title-mobile">Fostrap</a>
+				</div>
+			</nav>
+
+			<h4>Welcome ${sessionScope.username },</h4>
+			<form method="post">
+				<table>
+					<tr>
+						<td>Please select subject Id to mark attendence :</td>
+						<td><select id="subId" name="subId">
+								<option value="">--Select--</option>
+								<c:forEach var="subject" items="${sessionScope.subjectList}">
+									<option value="${subject}">${subject}</option>
+								</c:forEach>
+						</select></td>
+					</tr>
+					<tr>
+						<td><input type="submit"
+							onclick="javascript: form.action='/MarkAttendance';"
+							value="Mark Attendance"></td>
+						<td><input type="submit"
+							onclick="javascript: form.action='/UpdateStudentData';"
+							value="Update Student Data"></td>
+					</tr>
+				</table>
+
+			</form>
 		</div>
 	</div>
-	<h4>Welcome ${sessionScope.username },</h4>
-	<form method="post">
-		<table>
-			<tr>
-				<td>Please select subject Id to mark attendence :</td>
-				<td><select id="subId" name="subId">
-						<option value="">--Select--</option>
-						<c:forEach var="subject" items="${sessionScope.subjectList}">
-							<option value="${subject}">${subject}</option>
-						</c:forEach>
-				</select></td>
-			</tr>
-			<tr>
-				<td><input type="submit"
-					onclick="javascript: form.action='/MarkAttendance';"
-					value="Mark Attendance"></td>
-				<td><input type="submit"
-					onclick="javascript: form.action='/UpdateStudentData';"
-					value="Update Student Data"></td>
-			</tr>
-		</table>
-
-	</form>
 </body>
 </html>

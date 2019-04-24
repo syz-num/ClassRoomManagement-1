@@ -80,8 +80,7 @@ public class StudentController {
 			modelAndView = updateStudent(student);
 			userService.updateUser(user);
 		}
-		if (student.getOperation().equals("Delete Student")) {
-			modelAndView = deleteStudent(student);
+		if (student.getOperation().equals("Delete Student")) {			
 			userService.deleteUser(user);
 			List<String> subList = subjectService.getSubjectByClass(student.getDeptId(), student.getSem());
 			for (String subId : subList) {
@@ -90,6 +89,7 @@ public class StudentController {
 				data.setSubID(subId);
 				studentSubDataService.deleteStudent(data);
 			}
+			modelAndView = deleteStudent(student);
 		}
 		if (student.getOperation().equals("Search Student")) {
 			modelAndView = viewStudent(student);
