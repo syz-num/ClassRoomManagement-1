@@ -103,7 +103,7 @@ public class SubjectDao {
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);
 			rs = statement.executeQuery(sql);
-			if (rs.next()) {
+			while (rs.next()) {
 				list.add(rs.getString(1));
 
 			}
