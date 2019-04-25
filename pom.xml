@@ -9,7 +9,7 @@
 		<version>2.1.3.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<artifactId>ClassRoomMana</artifactId>
+	<artifactId>ClassRoomManagement</artifactId>
 	<packaging>war</packaging>
 	<name>ClassRoomManagement</name>
 	<description>Spring Boot Web JSP Sample</description>
@@ -66,13 +66,6 @@
 					<useSystemClassLoader>false</useSystemClassLoader>
 				</configuration>
 			</plugin>
-				<plugin>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-maven-plugin</artifactId>
-					<configuration>
-						<mainClass>org.baeldung.DemoApplication</mainClass>
-					</configuration>
-				</plugin>
 		</plugins>
 	</build>
 </project>
