@@ -37,7 +37,7 @@
 			<form method="post">
 				<table>
 					<tr>
-						<td>Please select subject Id to mark attendence :</td>
+						<td>Please select subject Id :</td>
 						<td><select id="subId" name="subId">
 								<option value="">--Select--</option>
 								<c:forEach var="subject" items="${sessionScope.subjectList}">
